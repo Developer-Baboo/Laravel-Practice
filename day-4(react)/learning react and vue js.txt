@@ -1,0 +1,15 @@
+nodejs version 18.17.1
+npm create vite@4.1.0
+y
+project-name: react-project
+select react
+select typescript
+cd first-project
+npm i
+npm run div
+node_modules third party libraries exist
+Public assets: phots font and video 
+npm i bootstrap@5.2.1
+replace index.css in main.tsx with import 'bootstrap/dist/css/bootstrap.css'
+select one word then press ctrl+d => select that word multiple time in whole page
+component can not return more than one element

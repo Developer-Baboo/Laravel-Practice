@@ -1,0 +1,21 @@
+INSERT INTO practice_16(name, email) VALUES ("Baboo Kumar","baboo@gmail.com"),("Rajesh Kumar","rajesh@gmail.com"),("Suhail Kumar","suhail@gmail.com");
+
+
+
+duplicate line below above
+shift+alt+up/below
+
+INSERT INTO libraries(stu_id, book, due_date, status) VALUES(1, "BOOK ONE","2023-08-30",1),(1, "BOOK TWO","2023-08-30",1);
+
+
+
+onupdate('casde'); (in child class)
+parent student sa update krenga to child libraries man jis jis jagha wo id use hogi vhan update hoga
+ondelete('casde'); (in child class)
+parent student sa delete krenga to child libraries man jis jis jagha wo id use hogi vhan sa remove hojayga
+ondelete('set null'); (in child class)
+parent student sa delete krenga to child libraries man jis jis jagha wo id use hogi vhan pa null store hoga
+
+ 
+bydefault restrict hota ha
+

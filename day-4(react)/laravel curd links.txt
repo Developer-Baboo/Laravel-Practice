@@ -1,0 +1,24 @@
+tsc index.ts
+tsc --init
+delete index.js file
+config configuration file
+put index.ts into srs folder
+tsc
+
+
+
+
+https://www.youtube.com/watch?v=F3XvcSFt3nQ
+https://www.youtube.com/watch?v=MJp8ycjNW5s
+https://www.youtube.com/watch?v=22WsqEPlTCs
+https://www.youtube.com/watch?v=Ipvsg9Q8UIE
+https://www.youtube.com/watch?v=1oGrDyFp9X8
+https://www.youtube.com/watch?v=_LA9QsgJ0bw
+https://www.youtube.com/watch?v=PUOkMi9UL74
+https://www.youtube.com/watch?v=NS0RI2CfMLE
+https://www.youtube.com/watch?v=zzzdj2_AN4o
+https://www.youtube.com/watch?v=dyQLsQm1EtI
+https://www.youtube.com/watch?v=xPTG-i_KHO0
+https://www.youtube.com/watch?v=VhulUzf2EWI
+https://www.youtube.com/watch?v=9OfL9H6AmhQ
+https://www.youtube.com/watch?v=qJq9ZMB2Was

@@ -1,0 +1,26 @@
+[
+        {
+        "name":"Baboo",
+        "email":"baboo@gmil.com",
+        "age":21,
+        "city":"Mithi"
+        },
+        {
+            "name":"Kelash",
+            "email":"kelash@gmil.com",
+            "age":19,
+            "city":"Lahore"
+        },
+        {
+            "name":"Suresh",
+            "email":"suresh@gmil.com",
+            "age":24,
+            "city":"Diplo"
+        },
+        {
+            "name":"Mohan",
+            "email":"mohan@gmil.com",
+            "age":22,
+            "city":"Mithi"
+        }
+]

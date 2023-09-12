@@ -1,0 +1,22 @@
+edit ka time hum put use krenga
+
+Axios is a popular JavaScript library used for making HTTP 
+requests in web applications. It is often used in Vue.js applications 
+to communicate with a backend server or external APIs. Axios provides 
+a simple and consistent API for sending and receiving HTTP requests.
+
+
+In Laravel, the back() method is commonly used to redirect a user 
+back to the previous page, typically after they have submitted a form or 
+interacted with a web application. The withSuccess() method is not a built-in
+ Laravel method, but it's likely being used to flash a success message to the 
+session before 
+redirecting the user back to a specific page.
+
+
+
+
+https://www.youtube.com/watch?v=T-fV_T6IfDc
+
+
+

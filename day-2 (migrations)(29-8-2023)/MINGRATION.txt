@@ -1,0 +1,51 @@
+1 php artisan make:migration create_students_table
+2 create columns
+3 php artisan migrate
+
+
+php artisan migrate:status
+php artisan migrate --force
+
+
+php artisan migrate:rollback ==>last man jo migrate bnie ha us ko undo krdage database sa
+
+
+php artisan migrate:reset empty database
+php artisan migrate 
+
+php artisan migrate:refresh first rollback then it migrate
+php artisan migrate:fresh first drop then it migrate
+
+
+
+php artisan make:migration update_student_table --table=students
+migration file ka name kuch bhi likh sakhta han lekin table ka name vohi hona cheya jis ko hum change kr rha han
+add column in above file
+php artisan migrate 
+
+
+
+## change columns name
+php artisan make:migration update_student_table --table=students
+add below code in newly created migraiton file by above command
+ Schema::table('students', function (Blueprint $table) {
+            Schema::table('students', function (Blueprint $table) {
+                $table->dropColumn('city');
+                $table->string('name', 50)->default('no name')->change();
+            });
+        });
+    }
+then run php artisan migrate
+
+
+#modify the table names
+php artisan make:migration update-student-table
+
+public function up(): void
+    {
+        Schema::rename('students', 'student');
+        Schema::dropIfExists('users');
+    }
+then php artisan serve
+
+

@@ -1,0 +1,114 @@
+DB ek class ha 
+table us ka method ka name ha 
+agr database sa data just read krna ha to get use krenga
+database sa jo data get hokr ayaga wo user variable man store hoga asa a json format
+
+
+create migration file
+
+php artisan make:migration create_users_table (first delete already built in file)
+mentioned column name
+php artisan migrate
+
+then make Seeders file
+php artisan make:seeder UserSeeder
+
+Write below code in json
+
+[
+        {
+        "name":"Baboo",
+        "email":"baboo@gmil.com",
+        "age":21,
+        "city":"Karachi"
+        },
+        {
+            "name":"Kelash",
+            "email":"kelash@gmil.com",
+            "age":19,
+            "city":"Lahore"
+        },
+        {
+            "name":"Suresh",
+            "email":"suresh@gmil.com",
+            "age":24,
+            "city":"Diplo"
+        },
+        {
+            "name":"Mohan",
+            "email":"mohan@gmil.com",
+            "age":22,
+            "city":"Mithi"
+        }
+]
+
+
+then write this code in UserSeeder file
+
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use App\Models\User; // Import the User model from your application's namespace
+
+class UserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $json = File::get(database_path('json/users.json'));
+        $users = collect(json_decode($json));
+
+        $users->each(function ($user) {
+            User::create([
+                'name' => $user->name,
+                'email' => $user->email,
+                'age' => $user->age,
+                'city' => $user->city,
+            ]);
+        });
+    }
+}
+
+
+
+then write this code in Database->seeders->DatabaseSeeders.php file
+ public function run(): void
+    {
+        $this->call([
+            UserSeeder::class
+        ]);
+    }
+
+php artisan db:seed
+
+
+php artisan make:controller UserController
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class UserController extends Controller
+{
+    public function showUsers(){
+        $users = DB::table('users')->get();
+        return view('allusers', ['data'=>$users]);
+    }
+}
+
+
+
+
+table>tr>td*5
+
+form sa jb bhi data pa action perform krenga to add method use krenga
+

@@ -1,0 +1,4 @@
+php artisan db:seed --class=UserSeeder
+
+
+if we want to run just one seeder file

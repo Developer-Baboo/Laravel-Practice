@@ -1,0 +1,107 @@
+basics
+components in vuejs
+loops, functions,
+binding 
+
+
+cursorpingate, paginate, simepepaginate ki default value 15 hoti ha
+orderby is must 
+
+
+custorpingate is used in million record and it is fast too than simple and paginate
+
+indexing man data base ka kisi table pa chaching kr data han kisi column wise
+hum un column ko indexing krta han jo bar bar open hota han
+
+controller
+public function showUsers(){
+        $users = DB::table('users')
+                    ->Paginate(4);
+        return view('allusers', ['data'=>$users]);
+    }
+
+
+
+below table in view
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        nav .w-5{
+            display: none;
+        }
+    </style>
+<div class="mt-5" >{{$data->links()}}</div>
+
+
+
+
+
+app/provider/AppServiceProvider.php
+<?php
+namespace App\Providers;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\ServiceProvider;
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        Paginator::useBootstrapFive();
+        Paginator::useBootstrapFour();
+    }
+}
+
+
+resi api express, mongo, nodejs 7 month ago
+https://www.youtube.com/watch?v=9OfL9H6AmhQ&t=2s
+
+
+role based management in laravel
+https://www.youtube.com/watch?v=1zunVAKMHI8
+
+custom login registraction
+https://www.youtube.com/watch?v=jmTJBGxn8vA
+
+
+https://marketplace.visualstudio.com/items?itemName=mohamedbenhida.laravel-intellisense
+
+ctrol+,
+texteditor
+formating
+prettier install kro
+editjson open kro
+add in settings
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
