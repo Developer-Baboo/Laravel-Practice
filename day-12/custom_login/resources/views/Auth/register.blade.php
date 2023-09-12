@@ -38,10 +38,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                             <label>Confirm Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="***********" />
-                            @if ($errors->has('password'))
-                                <p class="text-danger">{{ $errors->first('password')}}</p>
+                            <label>Confirm Password</label>
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="***********" />
+                            @if ($errors->has('password_confirmation'))
+                                <p class="text-danger">{{ $errors->first('password_confirmation') }}</p>
                             @endif
                         </div>
                         <div class="row">
