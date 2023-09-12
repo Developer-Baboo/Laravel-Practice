@@ -1,0 +1,52 @@
+fetch record all records 
+get 
+http://127.0.0.1:8000/api/students ==> get all students
+
+
+fetch single record by id
+get
+http://127.0.0.1:8000/api/students/1 ==> get student of id 1
+
+store record
+post
+http://127.0.0.1:8000/api/students
+go to body
+select raw
+select json
+enter this in text area
+Note: no any should be empty like this "name":"";
+{
+    "name":"Rajesh",
+    "course": "Data Science",
+    "email": "rajesh@gmail.com",
+    "phone": "0342234598"
+}
+then click send
+{
+    "status": 200,
+    "message": "Student created successfully"
+}
+
+
+edit by id
+http://127.0.0.1:8000/api/students/id/edit
+method put
+go to body
+select raw
+select json
+enter this in text area
+Note: no any should be empty like this "name":"";
+{
+    "name":"Rajesh",
+    "course": "Data Science",
+    "email": "rajesh@gmail.com",
+    "phone": "0342234598"
+}
+
+
+delete record by id
+method: delete
+http://127.0.0.1:8000/api/students/id/delete
+enter send
+
+

@@ -93,6 +93,7 @@ class UserController extends Controller
                         'email' => $req->useremail,
                         'age' => $req->userage,
                         'city' => $req->usercity,
+                        
                     ]);
         if($user){
             return redirect()->route('users')->with('message', 'User Updated Successfully');
