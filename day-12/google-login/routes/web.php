@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('login');
+Route::get('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+
+
+Route::get('home', function () {
+    return view('home');
+})->name('home');
