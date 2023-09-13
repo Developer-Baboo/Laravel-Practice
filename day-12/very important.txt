@@ -10,5 +10,3 @@ npm install
 npm run dev
 set db in env file
 php artisan migrate
-
-RouteServiceProvider.php
