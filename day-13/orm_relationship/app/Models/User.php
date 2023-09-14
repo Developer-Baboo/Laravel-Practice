@@ -53,6 +53,10 @@ class User extends Authenticatable
     public function contactContactinformation(){
         return $this->hasOneThrough(Contactinformation::class, Contact::class);
     }
+
+    public function image(){
+        return $this->morphOne(Image::class, 'imagable');
+    }
 }
 
 

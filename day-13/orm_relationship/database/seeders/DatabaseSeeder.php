@@ -29,6 +29,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\State::factory(100)->create();
         \App\Models\City::factory(500)->create();
 
+        //Polymorphic relationship
+        \App\Models\Image::factory(500)->create();
+
+
 
     }
 }

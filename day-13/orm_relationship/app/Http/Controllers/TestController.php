@@ -88,9 +88,27 @@ class TestController extends Controller
 
         //Mujha hr countries ka city cheya without status
 
-        $country = Country::with('stateCity')->first();
-
+       /*  $country = Country::with('stateCity')->first();
         dd($country->toArray());
+ */
+
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////Polymorphic 1 to 1
+
+ //fetch only user data
+ /* $user = User::first();
+ dd($user->toArray()); */
+
+ //fetch user data with image
+
+ /* $user = User::with('image')->first();
+ dd($user->toArray()); */
+
+
+//  fetch post data with image
+$post = Post::with('image')->first();
+ dd($post->toArray());
 
 
 
