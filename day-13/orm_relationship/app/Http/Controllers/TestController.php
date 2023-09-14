@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\category;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -14,7 +15,7 @@ class TestController extends Controller
 
     public function index(){
 
-        //one to one to relationships
+        //////////////////////////////////////////////////////////////////////////////////////////one to one to relationships//////////////////////////////////////////////////
 
         //user with contact details
         /* $user = User::with('contact')->first(); // contact hum na user model man define kya ha
@@ -27,7 +28,7 @@ class TestController extends Controller
         */
 
 
-        //one to many relationship
+        ///////////////////////////////////////////////////////////////////////////////////one to many relationship//////////////////////////////////////////////////////
 
         /* $user = User::with(['contact', 'posts'])->find(1);
         // return $user->toArray();
@@ -40,7 +41,22 @@ class TestController extends Controller
         dd($post->toArray()); */
 
 
-        
+
+
+
+         /////////////////////////////////////////////////////////////////////////////////// Many to many relationship//////////////////////////////////////////////////////
+        //one post have how many category
+
+        $categories = category::all();
+        $post = Post::with('categories')->first();
+        $post->categories()->attach($categories);
+
+        $post = Post::with('categories')->first();
+        dd($post->toArray());
+
+
+
+
 
 
 
