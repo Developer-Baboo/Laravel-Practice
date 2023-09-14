@@ -49,6 +49,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public function contactContactinformation(){
+        return $this->hasOneThrough(Contactinformation::class, Contact::class);
+    }
 }
 
 

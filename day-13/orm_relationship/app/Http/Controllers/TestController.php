@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Contactinformation;
 use App\Models\category;
 use Illuminate\Http\Request;
 
@@ -47,12 +48,26 @@ class TestController extends Controller
          /////////////////////////////////////////////////////////////////////////////////// Many to many relationship//////////////////////////////////////////////////////
         //one post have how many category
 
-        $categories = category::all();
+        /* $categories = category::all();
         $post = Post::with('categories')->first();
         $post->categories()->attach($categories);
 
         $post = Post::with('categories')->first();
-        dd($post->toArray());
+        dd($post->toArray()); */
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////Has One Through
+
+        //user ka sath contact ke informatin sath contact ke detial
+        /* $user = User::with('contact.contactinformation')->first();
+        dd($user->toArray()); */
+
+
+        //user and contact details
+
+        /* $user = User::with('contactContactinformation')->first();
+        dd($user->toArray()); */
 
 
 

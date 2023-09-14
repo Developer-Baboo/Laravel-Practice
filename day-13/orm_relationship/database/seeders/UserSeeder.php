@@ -6,7 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\{
     User,
-    Contact
+    Contact,
+    Contactinformation
 };
 
 class UserSeeder extends Seeder
@@ -25,6 +26,13 @@ class UserSeeder extends Seeder
             'user_id' => 1,
             'phone_no' => '03422449445',
             'address' =>'Address test'
+        ]);
+        
+        Contactinformation::create([
+            'contact_id'=>1,
+            'pincode'=>'44333',
+            'near_by'=>'xyz place',
+            'extra_detail'=>'more information about address'
         ]);
     }
 }
