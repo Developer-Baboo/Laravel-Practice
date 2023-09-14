@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
-use App\Models\Contactinformation;
+use App\Models\Country;
 use App\Models\category;
 use Illuminate\Http\Request;
+use App\Models\Contactinformation;
 
 class TestController extends Controller
 {
@@ -68,6 +69,28 @@ class TestController extends Controller
 
         /* $user = User::with('contactContactinformation')->first();
         dd($user->toArray()); */
+
+
+        ///////////////////////////////////////////////////////////////////////Has Many Through
+
+        //country data
+        /* $country = Country::first();
+        dd($country->toArray()); */
+
+
+        // first country ka andr kitne status han
+        /* $country = Country::with('states')->first();
+        dd($country->toArray()); */
+
+        //ek country ka kitna staus han and hr status ka andr kitne cities han
+       /*  $country = Country::with('states.cities')->first();
+        dd($country->toArray()); */
+
+        //Mujha hr countries ka city cheya without status
+
+        $country = Country::with('stateCity')->first();
+
+        dd($country->toArray());
 
 
 

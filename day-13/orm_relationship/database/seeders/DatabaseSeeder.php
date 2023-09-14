@@ -23,5 +23,12 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         \App\Models\Post::factory(100)->create();
         \App\Models\Category::factory(10)->create();
+
+
+        \App\Models\Country::factory(10)->create();
+        \App\Models\State::factory(100)->create();
+        \App\Models\City::factory(500)->create();
+
+
     }
 }
