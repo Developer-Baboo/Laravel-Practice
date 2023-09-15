@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result{
+            display: flex;
+            gap:24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #card{
+            width:300px;
+            height:300px;
+            border-radius: 16px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px 0 gray;
+        }
+    </style>
+</head>
+<body>
+    <input placeholder="Enter Roll Number" type="number" id="roll_number_input" /> <br>
+    <input placeholder="Enter Name" type="text" id="name_input" /> <br>
+    <input placeholder="Enter English Marks" type="number" id="sub1_input"> <br>
+    <input placeholder="Enter Math Marks" type="number" id="sub2_input"> <br>
+    <input placeholder="Enter Science Marks" type="number" id="sub3_input"> <br>
+    <button type="submit" onclick="getValue()">Submit</button>
+    
+    <p id="name_output">Name : </p>
+    <p id="roll_number_output">Roll Number: </p>
+    <p id="english_marks_output">English Marks : </p>
+    <p id="math_marks_output">Math Marks: </p>
+    <p id="science_marks_output">Science Marks: </p>
+    <p id="obtain_marks_output">Obtained Marks : </p>
+    <p id="grade_output">Grade : </p>
+    <p id="percentage_output">Percentage Marks : </p>
+    <p id="failed_output">Failed in Subjects </p>
+    
+    <script>
+        function getValue() {
+            var value1 = document.getElementById("roll_number_input").value;
+            var value2 = document.getElementById("name_input").value;
+            var value3 = parseInt(document.getElementById("sub1_input").value);
+            var value4 = parseInt(document.getElementById("sub2_input").value);
+            var value5 = parseInt(document.getElementById("sub3_input").value);
+
+            var roll_number = document.getElementById("roll_number_output");
+            var name = document.getElementById("name_output");
+            var english_marks = document.getElementById("english_marks_output");
+            var math_marks = document.getElementById("math_marks_output");
+            var science_marks = document.getElementById("science_marks_output");
+            var obtain_marks = document.getElementById("obtain_marks_output");
+            var grade = document.getElementById("grade_output");
+            var percentage = document.getElementById("percentage_output");
+            var failed = document.getElementById("failed_output");
+
+            var sum = value3 + value4 + value5;
+            var total_marks = 300;
+            var percentageValue = (sum / total_marks) * 100;
+            var gradeValue = "";
+
+            if (percentageValue >= 90 && percentageValue <= 100) {
+                gradeValue = "A+";
+            } else if (percentageValue >= 80 && percentageValue <= 89) {
+                gradeValue = "A";
+            } else if (percentageValue >= 70 && percentageValue <= 79) {
+                gradeValue = "B";
+            } else if (percentageValue >= 60 && percentageValue <= 69) {
+                gradeValue = "C";
+            } else if (percentageValue < 60) {
+                gradeValue = "Failed";
+            }
+
+            var failedSubjects = 0;
+            var marksArray = [value3, value4, value5];
+            for (let x of marksArray) {
+                if (x < 60) {
+                    failedSubjects++;
+                }
+            }
+
+            name.textContent = 'Name: ' + value2;
+            roll_number.textContent = 'Roll Number: ' + value1;
+            english_marks.textContent = 'English Marks: ' + value3;
+            math_marks.textContent = 'Math Marks: ' + value4;
+            science_marks.textContent = 'Science Marks: ' + value5;
+            obtain_marks.textContent = 'Obtained Marks: ' + sum;
+            percentage.textContent = 'Percentage: ' + percentageValue;
+            grade.textContent = 'Grade: ' + gradeValue;
+            failed.textContent = 'Failed In: ' + failedSubjects + ' Subjects';
+        }
+    </script>
+
+
+    <script src="./practice.js"></script>
+
+
+    <!-- <h1>es6</h1> -->
+    <!-- <button onclick="demo()">Click me</button> -->
+
+    
+
+    <!-- <button onclick="get()" >Get Data</button> -->
+    <!-- <div id="result"></div>
+    <button onclick="get()">Fetch Data</button>
+    <button onclick="post()">Post Data</button>
+    <button onclick="put()">Update Data</button>
+    <button onclick="trash()" >Delete Data</button> -->
+
+    <!-- <button onclick="demo(12)">Test Scope</button> -->
+
+
+     <!-- //For Generator and Yield in es6? -->
+
+     <!-- <h1 id="result"></h1>
+
+     <p id="result"></p> -->
+
+
+    
+    <!-- <script src="./app.js" type="module" defer></script> -->
+
+    <script>
+        /* const result = document.querySelector("#result");
+        const get = () => {
+                fetch('https://dummyjson.com/products')
+
+                    .then((response) => response.json())
+
+                    .then((data)=>{
+                        const products = data.products
+                        for(let product of products){
+                            const ui = `
+                                <div id='card'>
+                                    <h1>${product.brand}</h1>
+                                    <h1>${product.title}</h1>      
+                                </div>
+                            `
+                            result.innerHTML+=ui
+                        }   
+                    })
+                    .catch((err) => console.log(err));
+            }
+        const post = () =>{
+                fetch('https://dummyjson.com/products/add',{
+                    method: 'POST',
+                    data: JSON.stringify({
+                        title: 'ksdfjsldkfjs'
+                    })
+                })
+                .then((response)=>response.json())
+                .then((data) =>console.log(data))
+                .catch((err)=>console.log(err))
+            }
+        const put = () => {
+                fetch('https://dummyjson.com/products/1', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        title: 'iPhone Galaxy +1'
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((data) => console.log(data))
+                    .catch((err) => console.log(err))
+            }
+
+
+            const trash = () => {
+                    fetch('https://dummyjson.com/products/1', {
+                        method: 'DELETE',
+                    })
+                        .then((response) => response.json())
+                        .then((data) => console.log(data))
+                        .catch((err) => console.log(err))
+                } */
+
+
+                // //lexical means accessbly in inner functions
+                /* const demo = (num)=>{
+                    //num is lexical scope: upper function ka 
+                    //closures: ese method jis man sa inner function upper lexical scope wala variable ko use kra
+
+                    //
+
+                    const div = ()=>{
+                        alert(num)
+                    }
+                    div()
+                } */
+
+
+
+                //  Generator function* & Yield in ES6
+
+                /* function* Generator(){
+                    yield 'B' ;
+                    yield 'a';
+                    yield 'b';
+                    yield 'o';
+                    yield 'o';
+                    yield ' ';
+                    yield 'K';
+                    yield 'u';
+                    yield 'm';
+                    yield 'a';
+                    yield 'r';
+                    yield ' ';
+                    yield 'H';
+                    yield 'e';
+                    yield 'e';
+                    yield 'r';
+                    yield 'a';
+                    yield 'n';
+                    yield 'i';
+                }
+                const result = document.querySelector("#result");
+                const gen = Generator()
+                let release = setInterval(()=>{
+                    let {value, done} = gen.next()
+                    if(!done) result.innerHTML +=value
+                    else clearInterval(relase)
+                },100) */
+
+
+                //Maps & Sets Data Structure in ES6
+                //Object man data store hota ha lekin uskleya itna operation nhi han
+                //map: store data and proivde many functions to perform operations
+               /*  const student = new Map() //we created student map
+                student.set("name", "Baboo") //set is used to store
+                student.set("roll", 21)
+                student.set("class", 7) */
+                /* console.log(student.get("name")) //getting data 
+                console.log(student.get("roll")) 
+                console.log(student.get("class")) 
+                console.log(student.has("class")) */
+                // console.log(student.delete("class"))
+                /* for(let [key, value] of student){
+                    console.log(key, value);
+                }  
+                
+                store, get, has(check data), delete
+                */  
+
+
+                //Sets
+                /* const students = new Set()
+                students.add("sdjfl")
+                students.add("sdjfl321")
+                students.add("sdjfl123")
+                // console.log(students);
+                console.log(students.has("rahool"));
+                for(let x of students){
+                    console.log(x);
+                }
+ */
+                // it is not like array we get data using index //set not accept duplicate data
+    
+    
+                /* document.querySelector("#result").innerHTML = `
+                Date is ${new Date().toDateString()}
+                ` */
+                /* const getDate = () =>{
+                    return new Date().toDateString()
+                }
+                document.querySelector("#result").innerHTML = `
+                Date is ${getDate()}`; */
+
+    </script>
+</body>
+</html>
