@@ -1,0 +1,2 @@
+<a href="<?php echo e(route('login')); ?>"><h4>Login With Google</h4></a>
+<?php /**PATH E:\Tutorials\laravel\Projects\office\Laravel-Practice\day-12\google-login\resources\views/welcome.blade.php ENDPATH**/ ?>

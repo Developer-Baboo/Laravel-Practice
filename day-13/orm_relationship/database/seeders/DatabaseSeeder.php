@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(UserSeeder::class);
+
         \App\Models\User::factory(10)->create();
         \App\Models\Post::factory(100)->create();
         \App\Models\Category::factory(10)->create();
@@ -31,6 +32,10 @@ class DatabaseSeeder extends Seeder
 
         //Polymorphic relationship
         \App\Models\Image::factory(500)->create();
+        \App\Models\Tag::factory(10)->create();
+        \App\Models\Video::factory(50)->create();
+
+        $this->call(PostVideoSeeder::class);
 
 
 

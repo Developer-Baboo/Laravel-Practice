@@ -20,7 +20,20 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function image(){
+    //ek post have ek image
+    /* public function image(){
         return $this->morphOne(Image::class, 'imagable');
+    } */
+
+    //ek post many images
+
+    public function image(){
+        return $this->morphMany(Image::class, 'imagable');
     }
+
+    public function tags(){
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+
 }

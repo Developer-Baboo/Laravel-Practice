@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\category;
 use Illuminate\Http\Request;
 use App\Models\Contactinformation;
+use App\Models\Video;
 
 class TestController extends Controller
 {
@@ -107,10 +108,35 @@ class TestController extends Controller
 
 
 //  fetch post data with image
-$post = Post::with('image')->first();
- dd($post->toArray());
+/* $post = Post::with('image')->first();
+dd($post->toArray()); */
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////Polymorphic 1 to many
+
+ //ek post multiple images
+ /* $post = Post::with('image')->first();
+ dd($post->toArray()); */
+
+ //ek user multiple image
+ /* $user = User::with('image')->first();
+ dd($user->toArray()); */
 
 
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////Polymorphic Many to many
+
+  //fetch first post
+ /*  $post = Post::first();
+  dd($post->toArray()); */
+
+//fetch post with tags
+/* $post = Post::with('tags')->first();
+dd($post->toArray()); */
+
+
+//fetch video with tag
+$video = Video::with('tags')->first();
+dd($video->toArray());
 
 
 
