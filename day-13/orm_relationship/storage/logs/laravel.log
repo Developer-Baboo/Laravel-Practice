@@ -1,0 +1,40 @@
+[2023-09-14 18:07:28] local.ERROR: Cannot redeclare App\Models\User::image() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Models\\User::image() at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\User.php:62)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-14 18:07:45] local.ERROR: Cannot redeclare App\Models\User::image() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Models\\User::image() at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\User.php:62)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-14 18:07:55] local.ERROR: Cannot redeclare App\Models\User::image() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Models\\User::image() at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\User.php:63)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:26:00] local.ERROR: syntax error, unexpected identifier "prot", expecting "function" or "const" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected identifier \"prot\", expecting \"function\" or \"const\" at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Video.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:26:52] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Video.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:29:32] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Tag.php:13)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:29:40] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Tag.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:30:01] local.ERROR: syntax error, unexpected token "}", expecting variable {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting variable at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Tag.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:30:19] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Tag.php:17)
+[stacktrace]
+#0 {main}
+"} 
+[2023-09-15 01:33:15] local.ERROR: Cannot declare class App\Models\Country, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\Country, because the name is already in use at E:\\Tutorials\\laravel\\Projects\\office\\Laravel-Practice\\day-13\\orm_relationship\\app\\Models\\Country.php:8)
+[stacktrace]
+#0 {main}
+"} 
