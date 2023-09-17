@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('login');
+
 Route::any('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 
 

@@ -13,3 +13,8 @@ service.php file setup:
     ],
 
 composer require laravel/socialite run this command
+
+
+
+php artisan optimize
+php artisan config:clear
