@@ -1,0 +1,9 @@
+https://tailwindcss.com/docs/installation
+npx tailwindcss init
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

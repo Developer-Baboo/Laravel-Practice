@@ -1,0 +1,81 @@
+Laravel Service container vs Service provider : https://www.youtube.com/watch?v=Ls3ELZPt37Q
+Ajax + Laravel Curd app https://www.youtube.com/watch?v=scNJCwX9S-8
+Laravel 10 CRUD With Image Upload using jQuery Ajax with SweetAlert and DataTables : https://www.youtube.com/watch?v=Ipvsg9Q8UIE
+Facade In Laravel Application-What Why And How? | Laravel 9 Facades | Custom facade | Ajay [HINDI] : https://www.youtube.com/watch?v=bR0pW4IQmPw
+
+middlware : https://www.youtube.com/watch?v=E0vAQ60YlXM
+Laravel Observers and Laravel Model Events ;https://www.youtube.com/watch?v=KcpXkHIciys
+Laravel Model Scope | Local Scope | Global Scope | Laravel Query Builder | Laravel Scope  : https://www.youtube.com/watch?v=Au4Bco_u-b8
+Inertiajs And Laravel Todo List | Inertiajs Tutorial : https://www.youtube.com/watch?v=8qLWZrf_CGg
+
+Laravel ORM : Deep relationship, Fetch All Data In One Query In HINDI https://www.youtube.com/watch?v=4hBv0GwhyqM
+Laravel Attach and Detach Method: Mastering ORM Relationships | HINDI : https://www.youtube.com/watch?v=Hxmoi-powiM 
+How to Import and Save Multiple Images from a Zip File in Laravel | HINDI : https://www.youtube.com/watch?v=XrYfy-cJHoI
+Multi tenancy: https://www.youtube.com/watch?v=iCGg9S9m5Lk
+slid design patter: https://www.youtube.com/watch?v=ankGs_Zkf70
+
+
+typescript : https://www.youtube.com/watch?v=Ek0LMDfTupE&list=PLwGdqUZWnOp0xfHQFmlL52b_6-QZ0mnk_&index=9
+totall 36 videos
+add to cart laravel : https://www.youtube.com/watch?v=JRPjVooFVj4
+otp verification
+
+
+react+api+laravel
+web sockets
+
+Laravel 8 and vue3 CRUD Tutorial (ajay) : https://www.youtube.com/watch?v=jPrP88TFpKQ
+laravel + vue todo ajay + api : https://www.youtube.com/watch?v=s-Ti1n7h06w
+chat app ajay : https://www.youtube.com/watch?v=xTQ1Mm8SmXo\
+ride share app with laravel and value: https://www.youtube.com/watch?v=iFOEU6YNBzw
+laravel react api: https://www.youtube.com/watch?v=Oiczjew0faU&list=PLT51dtioU1pNoJ1C-TJbp13hEw7NmJv6i
+laravel react curd : https://www.youtube.com/watch?v=hMAO8atca18
+Complete react crud using laravel api from scratch funda of web it : https://www.youtube.com/watch?v=PUOkMi9UL74
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

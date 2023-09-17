@@ -135,8 +135,8 @@ dd($post->toArray()); */
 
 
 //fetch video with tag
-$video = Video::with('tags')->first();
-dd($video->toArray());
+/* $video = Video::with('tags')->first();
+dd($video->toArray()); */
 
 
 
