@@ -9,12 +9,55 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style type="text/css">
+        .message p{
+            border-radius: 10px;
+            padding: 10px 20px 10px 8px;
+            margin-top: 5px; 
+            display: inline-block;
+            width: auto;
+            margin: 0px;  
+        }
+        .message-send p{ 
+            background: #e0e3e6;
+            color: #2f2d2d;
+        }
+        .message-send{
+            text-align: right;
+            margin-top: 5px;
+        }
+        .message-receive p{
+            background: #435f7a;
+            color: #f5f5f5;
+        }
+        .message-receive{
+            margin-top: 5px;
+        }
+
+        .scrollable {
+            overflow: hidden;
+            overflow-y: scroll;
+            height: calc(100vh - 25vh);
+        }
+        .message-input{
+            border: none;
+            border-radius: 0px;
+            background: #f2f2f2;
+        }
+        
+    </style>
+
+    
 </head>
 <body>
     <div id="app">
@@ -54,7 +97,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
