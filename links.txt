@@ -18,64 +18,23 @@ slid design patter: https://www.youtube.com/watch?v=ankGs_Zkf70
 typescript : https://www.youtube.com/watch?v=Ek0LMDfTupE&list=PLwGdqUZWnOp0xfHQFmlL52b_6-QZ0mnk_&index=9
 totall 36 videos
 add to cart laravel : https://www.youtube.com/watch?v=JRPjVooFVj4
+
+
+Ecommerece: https://www.youtube.com/watch?v=Fz0pTzHptGE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&ab_channel=SharmaCoder 		
+typescript: https://www.youtube.com/watch?v=Ek0LMDfTupE&list=PLwGdqUZWnOp0xfHQFmlL52b_6-QZ0mnk_&index=5&ab_channel=ThapaTechnical
+complex: curd https://www.youtube.com/watch?v=T-fV_T6IfDc&ab_channel=CodeAgent
+rest api from scritech: https://www.youtube.com/watch?v=N9RKm7LJUjo&t=2s&ab_channel=TutsPrime
+image galery+api+laravel+react: https://www.youtube.com/watch?v=x0yezQRuI-4&ab_channel=Ajayyadav
+real time notification: https://www.youtube.com/watch?v=H7KmpEw9Gdk&ab_channel=Ajayyadav
+channel: https://www.youtube.com/@ProgrammingExperience/playlists
+https://www.youtube.com/watch?v=UWniysfpTmM&ab_channel=Ajayyadav
 otp verification
-
-
 react+api+laravel
 web sockets
-
 Laravel 8 and vue3 CRUD Tutorial (ajay) : https://www.youtube.com/watch?v=jPrP88TFpKQ
 laravel + vue todo ajay + api : https://www.youtube.com/watch?v=s-Ti1n7h06w
-chat app ajay : https://www.youtube.com/watch?v=xTQ1Mm8SmXo\
+chat app ajay : https://www.youtube.com/watch?v=xTQ1Mm8SmXo\ (done)
 ride share app with laravel and value: https://www.youtube.com/watch?v=iFOEU6YNBzw
 laravel react api: https://www.youtube.com/watch?v=Oiczjew0faU&list=PLT51dtioU1pNoJ1C-TJbp13hEw7NmJv6i
 laravel react curd : https://www.youtube.com/watch?v=hMAO8atca18
 Complete react crud using laravel api from scratch funda of web it : https://www.youtube.com/watch?v=PUOkMi9UL74
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
