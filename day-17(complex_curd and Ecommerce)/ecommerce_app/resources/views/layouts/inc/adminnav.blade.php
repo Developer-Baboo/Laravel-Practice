@@ -109,12 +109,28 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item d-flex align-items-center">
-            <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-              <i class="fa fa-user me-sm-1"></i>
-              <span class="d-sm-inline d-none">Sign In</span>
+          <li class="nav-item dropdown">
+            <a href="javascript:;" id="navbarDropdownProfile" data-bs-toggle="dropdown" aria-haspopup="" class="nav-link">
+                <i class="material-icons">person</i>
+                <p class="d-lg-none d-md-block">
+                    Account
+                </p>
             </a>
-          </li>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+            <a href="#" class="dropdown-item">Profile</a>
+            <a href="#" class="dropdown-item">Settings</a>
+            <div class="dropdown-item"></div>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          </div>
+        </li>
         </ul>
       </div>
     </div>

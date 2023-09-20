@@ -25,33 +25,33 @@
 
     <link rel="stylesheet" href="{{ asset('admin/css/material-dashboard.css') }}">
     {{-- <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}"> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 
 
 </head>
-<body class="g-sidenav-show  bg-gray-200">
-
-    {{-- //side bar --}}
-
+<body class="g-sidenav-show bg-gray-200">
+    <!-- Sidebar -->
     @include('layouts.inc.sidebar')
-    {{-- //narbar --}}
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+    <!-- Main Content -->
+    <div class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         @include('layouts.inc.adminnav')
         <div class="container-fluid py-4">
-                @yield('content')
+            @yield('content')
         </div>
         <div class="container-fluid py-4">
             @include('layouts.inc.adminfooter')
         </div>
-    </main>
+    </div>
 
 
 
     <!-- Scripts -->
     <script src="{{ asset('admin/js/core/popper.min.js')}}"  ></script>
     <script src="{{ asset('admin/js/core/bootstrap.min.js')}}"  ></script>
-    <script src="{{ asset('admin/js/core/jquery.min.js')}}"  ></script>
+    {{-- <script src="{{ asset('admin/js/core/jquery.min.js')}}"  ></script> --}}
     <script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js')}}"  ></script>
     <script src="{{ asset('admin/js/plugins/chartjs.min.js')}}"  ></script>
 
