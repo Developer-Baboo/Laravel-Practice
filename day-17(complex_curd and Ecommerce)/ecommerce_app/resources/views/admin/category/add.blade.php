@@ -10,15 +10,15 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="">Name</label>
-                    <input type="text" class="form-control" name="name" id="">
+                    <input type="text" class="form-control" name="name" id="" style="border: 1px solid #ccc;">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="">Slug</label>
-                    <input type="text" class="form-control" name="slug" id="">
+                    <input type="text" class="form-control" name="slug" id="" style="border: 1px solid #ccc;">
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Description</label>
-                    <textarea name="description" class="form-control" rows="3"></textarea>
+                    <textarea name="description" style="border: 1px solid #ccc;" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="">Status</label>
@@ -30,15 +30,15 @@
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Meta Title</label>
-                    <input type="text" name="meta_title" id="">
+                    <input type="text" name="meta_title" id="" style="border: 1px solid #ccc;">
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Meta KeyWords</label>
-                    <textarea name="meta_keywords" class="form-control" rows="3"></textarea>
+                    <textarea name="meta_keywords" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Meta Description</label>
-                    <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                    <textarea name="meta_description" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea>
                 </div>
                 <div class="col-md-12">
                     <input type="file" name="image" class="form-control" >
