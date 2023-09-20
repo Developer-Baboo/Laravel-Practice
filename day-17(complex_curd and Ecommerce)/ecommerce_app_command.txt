@@ -1,0 +1,12 @@
+composer require laravel/ui
+php artisan ui:auth
+npm run dev
+css and js file setup in app.blade.php file
+migration cahnges
+AdminMiddleWare changes
+Kernal Changes
+LoginController
+web.php setup
+
+creative tim free admin template bootstrap
+
