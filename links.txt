@@ -38,3 +38,10 @@ ride share app with laravel and value: https://www.youtube.com/watch?v=iFOEU6YNB
 laravel react api: https://www.youtube.com/watch?v=Oiczjew0faU&list=PLT51dtioU1pNoJ1C-TJbp13hEw7NmJv6i
 laravel react curd : https://www.youtube.com/watch?v=hMAO8atca18
 Complete react crud using laravel api from scratch funda of web it : https://www.youtube.com/watch?v=PUOkMi9UL74
+
+
+
+
+
+
+https://www.youtube.com/watch?v=8YbX4fRQpEE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&index=7
