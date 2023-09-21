@@ -27,11 +27,39 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function(){
-    Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index');
 
-    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index');
-    Route::get('add-categories', 'App\Http\Controllers\Admin\CategoryController@add'); //it just open add category
-    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert'); //it just open add category
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index'); //opening dashboard page
+    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index'); //opening category page
 
-    
+
+    Route::get('add-categories', 'App\Http\Controllers\Admin\CategoryController@add'); //it just open add category Page
+    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert'); //it actually add category
+
+
+    Route::get('edit-category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit'); //it just opening edit category page
+    Route::put('update-category/{id}', 'App\Http\Controllers\Admin\CategoryController@update'); //it just actually editing category data
+
+
+    Route::delete('delete-category/{id}', 'App\Http\Controllers\Admin\CategoryController@destroy')->name('category.destroy'); //it just actually destroying category
+
+
+
+
+    //Products Routes
+    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just dispalying projduct
+
+    Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
+    Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert'); //actually adding products
+
+    //editing
+    Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit'); //it just opening edit product page
+    // Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@eupdating_product'); //it is actully updating products
+
+
+
+
+    //deleting
+
+
+
 });
