@@ -72,7 +72,7 @@
                     <input type="file" name="image" class="form-control" >
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                 </div>
             </div>
         </form>

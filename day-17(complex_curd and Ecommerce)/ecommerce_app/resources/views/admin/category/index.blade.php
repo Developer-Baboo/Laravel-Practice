@@ -45,13 +45,13 @@
                         </td>
                         <td>
                             <div style="display: inline-block;">
-                                <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             </div>
                             <div style="display: inline-block;">
                                 <form method="POST" action="{{ route('category.destroy', ['id' => $item->id]) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
                             </div>
                         </td>
