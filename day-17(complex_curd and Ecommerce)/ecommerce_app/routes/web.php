@@ -17,9 +17,7 @@ use App\Http\Controllers\Admin\FrontendController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
 
 Auth::routes();
 
@@ -53,13 +51,17 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
 
     //editing
     Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit'); //it just opening edit product page
-    // Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@eupdating_product'); //it is actully updating products
+
+
+    Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@update'); //it is actully updating products
+
+
 
 
 
 
     //deleting
-
+    Route::delete('delete-product/{id}', 'App\Http\Controllers\Admin\ProductController@destroy')->name('product.destroy'); //it just
 
 
 });

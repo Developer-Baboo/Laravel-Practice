@@ -5,8 +5,9 @@
         <h4>Edit Product</h4>
     </div>
     <div class="card-body">
-        {{-- {{url('update-product/'.$products->id)}} --}}
-        <form action="#" method="POST" enctype="multipart/form-data">
+
+        <form action="{{url('update-product/'.$products->id)}}" method="POST" enctype="multipart/form-data">
+            @method('PUT');
             @csrf
             <div class="row">
                 <div class="col-md-12 mb-3">
@@ -86,7 +87,7 @@
                     <input type="file" name="image" class="form-control" >
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
                 </div>
             </div>
         </form>
