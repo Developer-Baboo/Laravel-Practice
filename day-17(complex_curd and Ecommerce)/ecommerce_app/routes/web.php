@@ -45,5 +45,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
 
 
 
+    //Products Routes
+    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just open add products Page
+    Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
+
+
 
 });
