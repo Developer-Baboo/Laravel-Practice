@@ -21,7 +21,7 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->description}}</td>
-                        <td>
+                        `<td>
                             <img style="width: 100px"  src="{{ asset('assets/uploads/category/'.$item->image) }}" alt="no image">
                         </td>
                         <td>
