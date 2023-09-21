@@ -52,6 +52,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert'); //actually adding products
 
     //editing
+    Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit'); //it just opening edit product page
+    // Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@eupdating_product'); //it is actully updating products
+
 
 
 

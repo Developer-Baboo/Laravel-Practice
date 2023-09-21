@@ -50,4 +50,16 @@ class ProductController extends Controller
         $product->save();
         return redirect('products')->with('status', "product Added Successfully");
     }
+
+    //Just open edit page with filled values
+    function edit($id){
+        $categories = Product::all();
+        $products = Product::find($id);
+        // dd($products[0]->category->name);
+        return view('admin.product.edit', compact('products','categories'));
+    }
+
+    // public function insert_product(){
+
+    // }
 }

@@ -49,8 +49,7 @@
                         </td>
                         <td>
                             <div style="display: inline-block;">
-                                {{-- {{ url('edit-prodict/'.$item->id) }} --}}
-                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             </div>
                             <div style="display: inline-block;">
                                 {{-- action="{{ route('product.destroy', ['id' => $item->id]) }}" --}}
