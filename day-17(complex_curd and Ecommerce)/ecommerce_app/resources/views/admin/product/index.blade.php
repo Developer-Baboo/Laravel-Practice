@@ -40,14 +40,16 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->description}}</td>
                         <td>
-                            <img style="width: 50px; height: 50px; border-radius: 50%;" src="{{ asset('assets/uploads/category/'.$item->image) }}" alt="no image">
+                            <img style="width: 50px; height: 50px; border-radius: 50%;" src="{{ asset('assets/uploads/product/'.$item->image) }}" alt="no image">
                         </td>
                         <td>
                             <div style="display: inline-block;">
-                                <a href="{{ url('edit/pro/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                {{-- {{ url('edit-prodict/'.$item->id) }} --}}
+                                <a href="#" class="btn btn-primary">Edit</a>
                             </div>
                             <div style="display: inline-block;">
-                                <form method="POST" action="{{ route('category.destroy', ['id' => $item->id]) }}">
+                                {{-- action="{{ route('product.destroy', ['id' => $item->id]) }}" --}}
+                                <form method="POST" >
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>

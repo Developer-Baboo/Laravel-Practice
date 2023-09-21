@@ -45,7 +45,7 @@
                         </td>
                         <td>
                             <div style="display: inline-block;">
-                                <a href="{{ url('edit/pro/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary">Edit</a>
                             </div>
                             <div style="display: inline-block;">
                                 <form method="POST" action="{{ route('category.destroy', ['id' => $item->id]) }}">

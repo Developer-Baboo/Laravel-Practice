@@ -36,7 +36,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert'); //it actually add category
 
 
-    Route::get('edit/pro/{id}', 'App\Http\Controllers\Admin\CategoryController@edit'); //it just opening edit category page
+    Route::get('edit-category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit'); //it just opening edit category page
     Route::put('update-category/{id}', 'App\Http\Controllers\Admin\CategoryController@update'); //it just actually editing category data
 
 
@@ -46,8 +46,16 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
 
 
     //Products Routes
-    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just open add products Page
+    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just dispalying projduct
+
     Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
+    Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert'); //actually adding products
+
+    //editing
+
+
+
+    //deleting
 
 
 
