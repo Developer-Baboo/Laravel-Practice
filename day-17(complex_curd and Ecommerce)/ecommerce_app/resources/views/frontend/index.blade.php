@@ -43,6 +43,7 @@
             <div class="owl-carousel freatured-carousel owl-theme">
                 @foreach ($trending_categories as $cate)
                     <div class="item">
+                        <a href="{{ url('view_category/'.$cate->slug) }}">
                         <div class="card rounded border-primary">
                             <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
                                 <img class="w-100 h-100" src="{{ asset('assets/uploads/category/'.$cate->image) }}" alt="Category Image" style="object-fit: cover;">
@@ -54,6 +55,7 @@
                                 </p>
                             </div>
                         </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

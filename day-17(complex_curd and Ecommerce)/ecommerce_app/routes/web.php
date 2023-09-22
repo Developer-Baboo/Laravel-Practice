@@ -19,6 +19,9 @@ use App\Http\Controllers\Admin\FrontendController;
 
 Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
 Route::get('category','App\Http\Controllers\frontend\FrontendController@category');
+
+
+Route::get('view_category/{slug}','App\Http\Controllers\frontend\FrontendController@view_category');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

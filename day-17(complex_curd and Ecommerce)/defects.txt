@@ -2,3 +2,9 @@ edit products man kuch ke values nhi arhi han
 edit product ka time category selected
 show nhi ho rhi ha
 layouts issue side sa cut rha ha  
+
+
+
+
+card big and small issue
+jis category man product na ho?

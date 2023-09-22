@@ -35,9 +35,11 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
 
-
-
-
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
 </head>
     @include('layouts.inc.frontenav')
     <div class="content">
