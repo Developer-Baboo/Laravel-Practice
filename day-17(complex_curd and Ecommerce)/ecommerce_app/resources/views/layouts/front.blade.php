@@ -37,7 +37,7 @@
 
     <style>
         a{
-            text-decoration: none;
+            text-decoration: none !important;
         }
     </style>
 </head>
