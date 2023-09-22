@@ -14,4 +14,8 @@ class FrontendController extends Controller
         return view('frontend.index', compact('featured_products'));
         // return view('frontend.index');
     }
+
+    function category(){
+        return view('frontend.category');
+    }
 }

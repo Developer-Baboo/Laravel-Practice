@@ -18,32 +18,21 @@ use App\Http\Controllers\Admin\FrontendController;
 */
 
 Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
-
+Route::get('category','App\Http\Controllers\frontend\FrontendController@category');
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::middleware(['auth', 'isAdmin'])->group(function(){
 
+Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index'); //opening dashboard page
     Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index'); //opening category page
-
-
     Route::get('add-categories', 'App\Http\Controllers\Admin\CategoryController@add'); //it just open add category Page
     Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert'); //it actually add category
-
-
     Route::get('edit-category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit'); //it just opening edit category page
     Route::put('update-category/{id}', 'App\Http\Controllers\Admin\CategoryController@update'); //it just actually editing category data
-
-
     Route::delete('delete-category/{id}', 'App\Http\Controllers\Admin\CategoryController@destroy')->name('category.destroy'); //it just actually destroying category
-
-
-
-
-    //Products Routes
+   //Products Routes
     Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just dispalying projduct
 
     Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
