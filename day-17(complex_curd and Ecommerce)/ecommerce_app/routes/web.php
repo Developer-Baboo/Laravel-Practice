@@ -21,7 +21,7 @@ use App\Http\Controllers\frontend\CartController;
 Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
 Route::get('category','App\Http\Controllers\frontend\FrontendController@category');
 
-Route::get('view_category/{slug}','App\Http\Controllers\frontend\FrontendController@view_category');
+Route::get('view_category/{slug}','App\Http\Controllers\frontend\FrontendController@view_category')->name('view.category');
 Route::get('category/{cate_slug}/{prod_slug}','App\Http\Controllers\frontend\FrontendController@productview');
 
 Auth::routes();

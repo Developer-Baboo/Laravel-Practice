@@ -4,6 +4,11 @@
     Category Page
 @endsection
 @section('content')
+<div class="py-3 mb-4 shadow-sm bg-warning border-top">
+    <div class="container">
+        <h6 class="mb-0">Collection</h6>
+    </div>
+</div>
 <div class="py-5">
     <div class="container">
         <div class="row">
