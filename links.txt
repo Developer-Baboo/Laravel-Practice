@@ -41,7 +41,11 @@ Complete react crud using laravel api from scratch funda of web it : https://www
 
 
 
+888888888888888888888888888888888888888888888888888888888888Yahoo baba888888888888888888888888888888888888888
+bootstrap: https://www.youtube.com/watch?v=wkSA9bfCmKU&list=PL0b6OzIxLPbz1cgxiH5KCBsyQij1HsPtG&ab_channel=YahooBaba
+Sass: https://www.youtube.com/watch?v=9ggoO2o1WJA&list=PL0b6OzIxLPbwX4_pV5V2E8q0_RAZqOOMv&ab_channel=YahooBaba
+SVG : https://www.youtube.com/watch?v=7zVanhJDtUI&list=PL0b6OzIxLPbxaPpusPu2mtfcRE6XiSRyk&ab_channel=YahooBaba
+flex-box : https://www.youtube.com/watch?v=-65YXXhJvOE&list=PL0b6OzIxLPbw5xyi8Q6cdR05Gz-0x-vaf&ab_channel=YahooBaba
+advance js : https://www.youtube.com/watch?v=IUFJzLlf2cE&list=PL0b6OzIxLPbzvz4j1N4J8zCY8mu3l29MG&ab_channel=YahooBaba
+jquery 46 : https://www.youtube.com/watch?v=QvaFeU0LWnc&list=PL0b6OzIxLPbzSyiC0PFaqeabe1aGhfrbW&ab_channel=YahooBaba
 
-
-
-https://www.youtube.com/watch?v=8YbX4fRQpEE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&index=7
