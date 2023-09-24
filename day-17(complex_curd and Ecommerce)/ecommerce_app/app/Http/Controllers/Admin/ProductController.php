@@ -8,32 +8,36 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
-    function index(){
-
-        //Fetch Products List
-        $products  = Product::all();
-        return view('admin.product.index', compact('products'));
+    // Display a list of products
+    function index()
+    {
+        // Fetch all products from the database
+        $products = Product::all();
+        return view('admin.product.index', compact('products')); // Return the view with the product data
     }
 
-
-    //Open Page Add Products
-    function add(){
-        $category = Category::all();
-        return view('admin.product.add', compact('category'));
+    // Display the add product form
+    function add()
+    {
+        $categories = Category::all(); // Fetch all categories to populate the category dropdown
+        return view('admin.product.add', compact('categories')); // Return the add view with category data
     }
 
-    //Adding Products
+    // Insert a new product into the database
+    function insert(Request $request)
+    {
+        $product = new Product(); // Create a new Product model instance
 
-    function insert(Request $request){
-        $product = new Product();
-        if($request->hasFile('image'))
-        {
+        // Handle image upload if a file is present in the request
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('assets/uploads/product',$filename);
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/product', $filename);
             $product->image = $filename;
         }
+
+        // Populate the product model with data from the request
         $product->cate_id = $request->input('cate_id');
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
@@ -43,63 +47,85 @@ class ProductController extends Controller
         $product->selling_price = $request->input('selling_price');
         $product->tax = $request->input('tax');
         $product->qty = $request->input('qty');
-        $product->status = $request->input('status') == TRUE ? '1':'0' ;
-        $product->trending = $request->input('trending') == TRUE ? '1':'0' ;
+        $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
         $product->meta_title = $request->input('meta_title');
         $product->meta_keywords = $request->input('meta_keywords');
         $product->meta_description = $request->input('meta_description');
+
+        // Save the product to the database
         $product->save();
-        return redirect('products')->with('status', "product Added Successfully");
+
+        // Redirect to the products page with a success message
+        return redirect('products')->with('status', "Product Added Successfully");
     }
 
-    //Just open edit page with filled values
-    function edit($id){
-        $categories = Product::all();
-        $products = Product::find($id);
-        // dd($products[0]->category->name);
-        return view('admin.product.edit', compact('products','categories'));
+    // Display the edit product form for a specific product
+    function edit($id)
+    {
+        $categories = Category::all(); // Fetch all categories to populate the category dropdown
+        $product = Product::find($id); // Find the product by its ID
+
+        return view('admin.product.edit', compact('product', 'categories')); // Return the edit view with the product and category data
     }
 
-    public function update(Request $request, $id){
-        $products = Product::find($id);
-        if($request->hasFile('image'))
-        {
-            $path = 'assets/uploads/product/'.$products->image;
-            if(File::exists($path))
-            {
+    // Update a specific product in the database
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id); // Find the product by its ID
+
+        // Handle image upload if a file is present in the request
+        if ($request->hasFile('image')) {
+            $path = 'assets/uploads/product/' . $product->image;
+            if (File::exists($path)) {
                 File::delete($path);
             }
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('assets/uploads/product',$filename);
-            $products->image = $filename;
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/product', $filename);
+            $product->image = $filename;
         }
-        $products->name = $request->input('name');
-        $products->slug = $request->input('slug');
-        $products->small_description = $request->input('small_description');
-        $products->description = $request->input('description');
-        $products->original_price = $request->input('original_price');
-        $products->selling_price = $request->input('selling_price');
-        $products->tax = $request->input('tax');
-        $products->qty = $request->input('qty');
-        $products->status = $request->input('status') == TRUE ? '1':'0' ;
-        $products->trending = $request->input('trending') == TRUE ? '1':'0' ;
-        $products->meta_title = $request->input('meta_title');
-        $products->meta_keywords = $request->input('meta_keywords');
-        $products->meta_description = $request->input('meta_description');
-        $products->update();
+
+        // Update the product data from the request
+        $product->name = $request->input('name');
+        $product->slug = $request->input('slug');
+        $product->small_description = $request->input('small_description');
+        $product->description = $request->input('description');
+        $product->original_price = $request->input('original_price');
+        $product->selling_price = $request->input('selling_price');
+        $product->tax = $request->input('tax');
+        $product->qty = $request->input('qty');
+        $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->meta_title = $request->input('meta_title');
+        $product->meta_keywords = $request->input('meta_keywords');
+        $product->meta_description = $request->input('meta_description');
+
+        // Save the updated product to the database
+        $product->update();
+
+        // Redirect to the products page with a success message
         return redirect('products')->with('status', "Product Updated Successfully");
     }
 
-    public function destroy($id){
-        $products = Product::find($id);
-        $path = 'assets/uploads/product/'.$products->image;
-        if(File::exists($path))
-        {
-            File::delete($path);
+    // Delete a specific product from the database
+    public function destroy($id)
+    {
+        $product = Product::find($id); // Find the product by its ID
+
+        // Delete the product's image file, if it exists
+        if ($product->image) {
+            $path = 'assets/uploads/product/' . $product->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
         }
-        $products->delete();
+
+        // Delete the product from the database
+        $product->delete();
+
+        // Redirect to the products page with a success message
         return redirect('products')->with('status', "Product Deleted Successfully");
     }
 }

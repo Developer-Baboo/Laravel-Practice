@@ -81,14 +81,19 @@
             });
 
             $.ajax({
-                method:"POST",
-                url:"/add-to-cart",
-                data:{
-                    'product_id':product_id,
-                    'product_qty':product_qty,
+                method: "POST",
+                url: "/add-to-cart",
+                data: {
+                    'product_id': product_id,
+                    'product_qty': product_qty,
                 },
                 success: function (response) {
-                    alert(response.status);
+                    alert(response.status); // Display the response message in an alert
+                    if (response.status === 'Login to continue') {
+                        console.log('Inside AJAX success function'); // Debugging line
+                        // Redirect the user to the login page
+                        window.location.href = "{{ route('login') }}";
+                    }
                 }
             });
          });

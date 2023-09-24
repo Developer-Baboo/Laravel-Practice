@@ -9,94 +9,112 @@ use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
-    function index(){
-
-
-        $category = Category::all(); //fetch category from db and show on index page
-        return view('admin.category.index', compact('category'));
+    // Display a list of categories
+    function index()
+    {
+        $category = Category::all(); // Fetch all categories from the database
+        return view('admin.category.index', compact('category')); // Return the view with the category data
     }
 
-    //open Add page
-
-    function add(){
-            return view('admin.category.add');
+    // Display the add category form
+    function add()
+    {
+        return view('admin.category.add'); // Return the view for adding a category
     }
 
-    //Insert Category in database
-    function insert(Request $request){
-        $category = new Category();
+    // Insert a new category into the database
+    function insert(Request $request)
+    {
+        $category = new Category(); // Create a new Category model instance
 
-        if($request->hasFile('image'))
-        {
+        // Handle image upload if a file is present in the request
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('assets/uploads/category',$filename);
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/category', $filename);
             $category->image = $filename;
         }
 
+        // Populate the category model with data from the request
         $category->name = $request->input('name');
         $category->slug = $request->input('slug');
         $category->description = $request->input('description');
-        $category->status = $request->input('status') == TRUE ? '1':'0' ;
-        $category->popular = $request->input('popular') == TRUE ? '1':'0' ;
+        $category->status = $request->input('status') == TRUE ? '1' : '0';
+        $category->popular = $request->input('popular') == TRUE ? '1' : '0';
         $category->meta_title = $request->input('meta_title');
         $category->meta_keywords = $request->input('meta_keywords');
         $category->meta_descrip = $request->input('meta_description');
+
+        // Save the category to the database
         $category->save();
+
+        // Redirect back to the dashboard with a success message
         return redirect('/dashboard')->with('status', "Category Added Successfully");
-
     }
 
-
-    //shifitng to Category page with data of particular id
-
-    function edit($id){
-        $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+    // Display the edit category form for a specific category
+    function edit($id)
+    {
+        $category = Category::find($id); // Find the category by its ID
+        return view('admin.category.edit', compact('category')); // Return the edit view with the category data
     }
 
-    function update(Request $request, $id){
-        $category = Category::find($id);
-        if($request->hasFile('image'))
-        {
-            $path = 'assets/uploads/category/'.$category->image;
-            if(File::exists($path))
-            {
+    // Update a specific category in the database
+    function update(Request $request, $id)
+    {
+        $category = Category::find($id); // Find the category by its ID
+
+        // Handle image upload if a file is present in the request
+        if ($request->hasFile('image')) {
+            // Delete the previous image file, if it exists
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path)) {
                 File::delete($path);
             }
+
+            // Upload and store the new image
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('assets/uploads/category',$filename);
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/category', $filename);
             $category->image = $filename;
         }
 
+        // Update the category data from the request
         $category->name = $request->input('name');
         $category->slug = $request->input('slug');
         $category->description = $request->input('description');
-        $category->status = $request->input('status') == TRUE ? '1':'0' ;
-        $category->popular = $request->input('popular') == TRUE ? '1':'0' ;
+        $category->status = $request->input('status') == TRUE ? '1' : '0';
+        $category->popular = $request->input('popular') == TRUE ? '1' : '0';
         $category->meta_title = $request->input('meta_title');
         $category->meta_keywords = $request->input('meta_keywords');
         $category->meta_descrip = $request->input('meta_description');
 
+        // Save the updated category to the database
         $category->update();
+
+        // Redirect to the categories page with a success message
         return redirect('categories')->with('status', "Category Updated Successfully");
-
     }
 
-    function destroy($id){
-    $category = Category::find($id);
-    if($category->image)
+    // Delete a specific category from the database
+    function destroy($id)
     {
-        $path = 'assets/uploads/category/'.$category->image;
-        if(File::exists($path)){
-            File::delete($path);
-        }
-    }
-    $category->delete();
-    return redirect('categories')->with('status', "Category Deleted Successfully");
-    }
+        $category = Category::find($id); // Find the category by its ID
 
+        // Delete the category's image file, if it exists
+        if ($category->image) {
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
+
+        // Delete the category from the database
+        $category->delete();
+
+        // Redirect to the categories page with a success message
+        return redirect('categories')->with('status', "Category Deleted Successfully");
+    }
 }

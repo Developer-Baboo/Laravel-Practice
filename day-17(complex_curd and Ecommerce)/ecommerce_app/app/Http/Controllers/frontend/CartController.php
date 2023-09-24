@@ -10,36 +10,39 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    // Method for adding a product to the cart
     function addProduct(Request $request)
     {
+        // Get the product_id and product_qty from the request
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
 
-        if(Auth::check())
-        {
+        // Check if the user is authenticated (logged in)
+        if (Auth::check()) {
+            // Check if a product with the given 'product_id' exists in the database
             $prod_check = Product::where('id', $product_id)->first();
 
-            if($prod_check)
-            {
-                if(Cart::where('prod_id', $product_id)->where('user_id' ,Auth::id())->exists())
-                {
-                    return response()->json(['status', $prod_check->name. 'Already exists to cart']);
-                }
-                else
-                {
+            if ($prod_check) {
+                // Check if the product already exists in the user's cart
+                if (Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->exists()) {
+                    // If it exists, return a JSON response with a status message
+                    return response()->json(['status' => $prod_check->name . ' already exists in the cart']);
+                } else {
+                    // If it doesn't exist, create a new Cart item and save it
                     $cartItem = new Cart();
                     $cartItem->prod_id = $product_id;
                     $cartItem->user_id = Auth::id();
                     $cartItem->prod_qty = $product_qty;
                     $cartItem->save();
-                    // return response()->json(['status', $prod_check->name. 'Added to cart']);
-                    return response()->json(['status' => $prod_check->name . ' Added to cart']);
+
+                    // Return a JSON response with a status message indicating the product was added to the cart
+                    return response
+                    ()->json(['status' => $prod_check->name . ' added to the cart']);
                 }
             }
-        }
-        else
-        {
-            return response()->json(['status', 'Login to continue']);
+        } else {
+            // If the user is not logged in, return a JSON response with a status message
+            return response()->json(['status' => 'Login to continue']);
         }
     }
 }
