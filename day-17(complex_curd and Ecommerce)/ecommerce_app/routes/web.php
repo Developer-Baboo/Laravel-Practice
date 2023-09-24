@@ -28,6 +28,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/add-to-cart', [CartController::class, 'addProduct']);
+// delete product item from cart
+Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function (){
