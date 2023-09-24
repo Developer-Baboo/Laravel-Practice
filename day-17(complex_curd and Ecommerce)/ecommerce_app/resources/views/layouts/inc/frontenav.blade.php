@@ -12,14 +12,38 @@
           <a class="nav-link" href="{{ url('category') }}">Category</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="{{ url('cart') }}">My Cart</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">Login</a>
-          </li>
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <!-- Check if the user is a guest (not logged in) -->
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+        @endguest
+        <!-- Check if the user is authenticated (logged in) -->
+        @auth
+            <!-- Add your logged-in user content here -->
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                <a href="#" class="dropdown-item">Profile</a>
+                <a href="#" class="dropdown-item">Settings</a>
+                <div class="dropdown-item"></div>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+              </div>
+        @endauth
       </ul>
     </div>
   </nav>

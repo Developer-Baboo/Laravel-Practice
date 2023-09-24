@@ -45,4 +45,10 @@ class CartController extends Controller
             return response()->json(['status' => 'Login to continue']);
         }
     }
+
+    // View cart page
+    function viewcart(){
+        $cartitems = Cart::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        return view('frontend.cart', compact('cartitems'));
+    }
 }

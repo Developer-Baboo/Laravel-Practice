@@ -4,10 +4,20 @@
 @section('content')
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
-        {{--  --}}
-        <h6 class="mb-0"><a href=" {{ url('category')}}  ">Collection</a> / <a href="{{ url('view.category') }} ">{{$products->category->name}}</a>  / {{ $products->name }} </h6>
+        <h6 class="mb-0">
+            <a href=" {{ url('category')}} ">
+                Collections
+            </a> /
+            <a href="{{ url('category/'.$products->category->slug) }}">
+                {{ $products->category->name }}
+            </a> /
+            <a href="{{ url('category/'.$products->category->slug.'/'.$products->slug) }}">
+                {{ $products->name }}
+            </a>
+        </h6>
     </div>
 </div>
+
 <div class="container">
     <div class="card shadow product_data">
         <div class="card-body">
@@ -61,79 +71,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-    <script>
-    $(document).ready(function () {
-
-        // Add To Cart
-         $('.addtoCartbtn').click(function (e){
-            e.preventDefault();
-
-            var product_id = $(this).closest('.product_data').find('.prod_id').val();
-            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                method: "POST",
-                url: "/add-to-cart",
-                data: {
-                    'product_id': product_id,
-                    'product_qty': product_qty,
-                },
-                success: function (response) {
-                    alert(response.status); // Display the response message in an alert
-                    if (response.status === 'Login to continue') {
-                        console.log('Inside AJAX success function'); // Debugging line
-                        // Redirect the user to the login page
-                        window.location.href = "{{ route('login') }}";
-                    }
-                }
-            });
-         });
-
-
-
-        $('.increment-btn').click(function (e) {
-            e.preventDefault();
-
-            var inc_value = $('.qty-input').val();
-            var value = parseInt(inc_value, 10);
-
-            // Check if value is NaN (Not-a-Number)
-            value = isNaN(value) ? 0 : value;
-
-            if (value < 10) {
-                value++;
-                $('.qty-input').val(value);
-            }
-        });
-    });
-
-
-    //decrease value
-
-    $(document).ready(function () {
-        $('.decrement-btn').click(function (e) {
-            e.preventDefault();
-
-            var dec_value = $('.qty-input').val();
-            var value = parseInt(dec_value, 10);
-
-            // Check if value is NaN (Not-a-Number)
-            value = isNaN(value) ? 0 : value;
-
-            if (value > 1 ) {
-                value--;
-                $('.qty-input').val(value);
-            }
-        });
-    });
-    </script>
 @endsection
