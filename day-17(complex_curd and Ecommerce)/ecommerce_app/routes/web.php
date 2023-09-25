@@ -30,6 +30,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/add-to-cart', [CartController::class, 'addProduct']);
 // delete product item from cart
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
+//update cart (chagne total price on increment/decreemnt quantity)
+Route::post('update_cart', [CartController::class, 'update_cart']);
 
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function (){

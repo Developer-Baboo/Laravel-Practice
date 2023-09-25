@@ -1,5 +1,0 @@
-Owl settings
-
-css 2 files
-js do files
-add in 

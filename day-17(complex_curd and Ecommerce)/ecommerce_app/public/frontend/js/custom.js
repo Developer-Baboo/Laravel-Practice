@@ -91,4 +91,26 @@ $(document).ready(function () {
     });
 
 
+    //jasaa user increment/decrement kra product quantity ko to sath sath total price decrease/increase ho
+    $(".changeQuantity").click(function (e) {
+        e.preventDefault();
+        //take product id
+        var prod_id = $(this).closest('.product_data').find('.prod_id').val();
+        var qty = $(this).closest('.product_data').find('.qty-input').val();
+        data = {
+            'prod_id' : prod_id,
+            'prod_qty' : qty,
+        }
+        $.ajax({
+            type: "POST",
+            url: "update_cart",
+            data: "data",
+            success: function (response) {
+                alert(response);
+            }
+        });
+
+    });
+
+
 });

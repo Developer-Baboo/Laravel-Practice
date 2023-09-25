@@ -65,4 +65,9 @@ class CartController extends Controller
             return response()->json(['status' => "Login to Continue"]);
         }
     }
+
+    //change price on increment/decrement quantity
+    function update_cart(){
+
+    }
 }

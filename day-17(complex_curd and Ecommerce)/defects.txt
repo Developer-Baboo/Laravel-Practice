@@ -12,4 +12,5 @@ sweet alert
 colletion/category link not work
 
 redirect pa sweet alert show krna ha
+product cart sa remove hote ha lekin message show nhi hota ha 
 
