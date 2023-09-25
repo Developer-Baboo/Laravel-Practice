@@ -1,3 +1,8 @@
+https://www.youtube.com/watch?v=rq0IKZ2fHkE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&index=27
+7:08
+
+
+
 Laravel Service container vs Service provider : https://www.youtube.com/watch?v=Ls3ELZPt37Q
 Ajax + Laravel Curd app https://www.youtube.com/watch?v=scNJCwX9S-8
 Laravel 10 CRUD With Image Upload using jQuery Ajax with SweetAlert and DataTables : https://www.youtube.com/watch?v=Ipvsg9Q8UIE

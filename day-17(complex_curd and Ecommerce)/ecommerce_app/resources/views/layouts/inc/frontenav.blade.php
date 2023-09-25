@@ -17,6 +17,28 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ auth()->user()->name }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endauth
+
+
+
         <!-- Check if the user is a guest (not logged in) -->
         @guest
             <li class="nav-item">
@@ -26,8 +48,9 @@
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
         @endguest
-        <!-- Check if the user is authenticated (logged in) -->
-        @auth
+
+        {{-- <!-- Check if the user is authenticated (logged in) -->
+        @if(Auth::check())
             <!-- Add your logged-in user content here -->
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                 <a href="#" class="dropdown-item">Profile</a>
@@ -43,7 +66,7 @@
                     @csrf
                 </form>
               </div>
-        @endauth
+        @endif --}}
       </ul>
     </div>
   </nav>

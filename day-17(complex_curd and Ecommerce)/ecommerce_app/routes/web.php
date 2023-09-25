@@ -38,6 +38,7 @@ Route::post('update_cart', [CartController::class, 'update_cart']);
 Route::middleware(['auth'])->group(function (){
     Route::get('cart', [CartController::class, 'viewcart'] );
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::post('place_order', [CheckoutController::class, 'place_order'])->name('place_order');
 });
 
 /*
