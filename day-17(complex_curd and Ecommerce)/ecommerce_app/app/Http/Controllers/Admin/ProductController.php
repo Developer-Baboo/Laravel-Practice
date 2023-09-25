@@ -66,6 +66,8 @@ class ProductController extends Controller
         $categories = Category::all(); // Fetch all categories to populate the category dropdown
         $product = Product::find($id); // Find the product by its ID
 
+        // dd($categories);
+
         return view('admin.product.edit', compact('product', 'categories')); // Return the edit view with the product and category data
     }
 
