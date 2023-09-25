@@ -4,6 +4,16 @@
     Welcome to E-Shop
 @endsection
 @section('content')
+@if(session('status'))
+    <script>
+        // Use SweetAlert to display the message
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('status') }}', // Get the status message from the session
+        });
+    </script>
+    @endif
 @include('layouts.inc.slider')
 
 {{-- Product section --}}
