@@ -66,15 +66,16 @@ $(document).ready(function () {
         }
     });
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
 
     //Delete product cart item
     $('.delete-cart-item').click(function (e) {
         e.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
         var prod_id = $(this).closest('.product_data').find('.prod_id').val();
         $.ajax({
@@ -104,13 +105,10 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "update_cart",
-            data: "data",
+            data: data,
             success: function (response) {
-                alert(response);
+                window.location.reload();
             }
         });
-
     });
-
-
 });

@@ -50,3 +50,17 @@ advance js : https://www.youtube.com/watch?v=IUFJzLlf2cE&list=PL0b6OzIxLPbzvz4j1
 jquery 46 : https://www.youtube.com/watch?v=QvaFeU0LWnc&list=PL0b6OzIxLPbzSyiC0PFaqeabe1aGhfrbW&ab_channel=YahooBaba
 
 ajax,json : 39 https://www.youtube.com/watch?v=ACitNEo8sKw&list=PL0b6OzIxLPbxO0_8Av3c-9_l5RM5uJK8U&ab_channel=YahooBaba
+
+
+
+
+
+Ecommerece: https://www.youtube.com/watch?v=Fz0pTzHptGE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&ab_channel=SharmaCoder 		
+typescript: https://www.youtube.com/watch?v=Ek0LMDfTupE&list=PLwGdqUZWnOp0xfHQFmlL52b_6-QZ0mnk_&index=5&ab_channel=ThapaTechnical
+complex: curd https://www.youtube.com/watch?v=T-fV_T6IfDc&ab_channel=CodeAgent
+rest api from scritech: https://www.youtube.com/watch?v=N9RKm7LJUjo&t=2s&ab_channel=TutsPrime
+image galery+api+alravel+react: https://www.youtube.com/watch?v=x0yezQRuI-4&ab_channel=Ajayyadav
+real time notification: https://www.youtube.com/watch?v=H7KmpEw9Gdk&ab_channel=Ajayyadav
+channel: https://www.youtube.com/@ProgrammingExperience/playlists
+https://www.youtube.com/watch?v=UWniysfpTmM&ab_channel=Ajayyadav
+

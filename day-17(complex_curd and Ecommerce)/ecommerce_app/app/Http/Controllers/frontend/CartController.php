@@ -52,6 +52,22 @@ class CartController extends Controller
         return view('frontend.cart', compact('cartitems'));
     }
 
+
+    //change price on increment/decrement quantity
+    function update_cart(Request $request){
+        $prod_id = $request->input('prod_id');
+        $product_qty = $request->input('prod_qty');
+
+        if(Auth::check()){
+            if(Cart::where('prod_id', $prod_id)->where('user_id', Auth::id())->exists()){
+                $cart = Cart::where('prod_id', $prod_id)->where('user_id', Auth::id())->first();
+                $cart->prod_qty = $product_qty;
+                $cart->update();
+                return response()->json(['status'=>"Quantity Updated"]);
+            }
+        }
+    }
+
     // delete product item from cart
     function deleteproduct( Request $request){
         if(Auth::check()){
@@ -66,8 +82,5 @@ class CartController extends Controller
         }
     }
 
-    //change price on increment/decrement quantity
-    function update_cart(){
 
-    }
 }

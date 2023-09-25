@@ -50,7 +50,10 @@
             @endforeach
         </div>
         <div class="card-footer">
-            <h6>Total Price : {{ $total }} </h6>
+            <h6>Total Price : Rs.{{ $total }}
+                <button class="btn btn-outline-success float-end">Proceed to Checkout</button>
+            </h6>
+
         </div>
     </div>
 </div>
