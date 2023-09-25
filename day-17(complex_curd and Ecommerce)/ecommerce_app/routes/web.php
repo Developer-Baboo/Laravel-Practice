@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\CartController;
 
 /*
@@ -36,10 +37,14 @@ Route::post('update_cart', [CartController::class, 'update_cart']);
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function (){
     Route::get('cart', [CartController::class, 'viewcart'] );
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
 
-
-
+/*
+If a user is not authenticated, they won't be able to access any of the routes within this group.
+If a user is authenticated but doesn't have the "isAdmin" role or permission, they also won't be able to access the routes within this group.
+Only authenticated users with the "isAdmin" role or permission will be able to access the routes inside this group.
+*/
 Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index'); //opening dashboard page
     Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index'); //opening category page
