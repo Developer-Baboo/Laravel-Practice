@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\frontend\CheckoutController;
 
@@ -86,8 +87,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
 
     //Get Order History
     Route::get('order_history', 'App\Http\Controllers\Admin\OrderController@order_history');
-    //user
-    Route::get('users');
+
+    //Show Registered Users on Admin Dashboard
+    Route::get('users', [DashboardController::class, 'users']);
+
+    //Get single users details
+
+    // view_user
+    Route::get('view_user/{id}', [DashboardController::class, 'view_user']);
 
 
 });
