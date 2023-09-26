@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\frontend\CheckoutController;
-use App\Http\Controllers\frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,14 @@ Route::middleware(['auth'])->group(function (){
     Route::get('cart', [CartController::class, 'viewcart'] );
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::post('place_order', [CheckoutController::class, 'place_order'])->name('place_order');
+
+    // getting order which i have did from db
+    Route::get('my_orders', [UserController::class, 'index'])->name('my_orders');
+
+    // view order details
+    Route::get('view_order_details/{id}', [UserController::class, 'view'])->name('view_order_details');
+
+
 });
 
 /*

@@ -31,6 +31,13 @@ class CheckoutController extends Controller
     }
 
     function place_order(Request $request){
+        $cartitems = Cart::where('user_id', Auth::id())->get();
+        // Calculate grandTotal
+        $grandTotal = 0;
+        foreach ($cartitems as $item) {
+            $itemTotal = $item->prod_qty * $item->products->selling_price;
+            $grandTotal += $itemTotal;
+        }
         $order = new Order();
 
         $order->user_id = Auth::id();
@@ -44,6 +51,7 @@ class CheckoutController extends Controller
         $order->country = $request->input('country');
         $order->pincode = $request->input('pincode');
         $order->state = $request->input('state');
+        $order->total_price = $grandTotal; // Assign the grandTotal value
         $order->tracking_no = 'Baboo'.rand(1111,9999);
         $order->save();
 
@@ -64,7 +72,6 @@ class CheckoutController extends Controller
 
         if(Auth::user()->address1 == NULL){
             $user = User::where('id', Auth::id())->first();
-
             $user->name = $request->input('fname');
             $user->lname = $request->input('lname');
             $user->phone = $request->input('phone');
@@ -76,11 +83,8 @@ class CheckoutController extends Controller
             $user->pincode = $request->input('pincode');
             $user->update();
         }
-
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
-
         return redirect('/')->with('status', 'Order Placed Successfully');
-
     }
 }
