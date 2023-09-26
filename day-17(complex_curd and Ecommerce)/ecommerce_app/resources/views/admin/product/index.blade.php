@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('title')
+    Show Products
+@endsection
 @section('content')
 <div class="card">
     @if(session('status'))

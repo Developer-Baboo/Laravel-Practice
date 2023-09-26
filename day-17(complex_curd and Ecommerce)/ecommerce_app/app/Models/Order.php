@@ -28,8 +28,10 @@ class Order extends Model
     ];
 
 
-    //  Order Order have  Many items
+    //  1 Order have  Many items
     //  1 items belong to Many Orders
+
+    // order has many items
     public function orderitems(){
         return $this->hasMany(OrderItem::class);
     }

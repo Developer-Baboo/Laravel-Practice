@@ -65,23 +65,20 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::delete('delete-category/{id}', 'App\Http\Controllers\Admin\CategoryController@destroy')->name('category.destroy'); //it just actually destroying category
    //Products Routes
     Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just dispalying projduct
-
     Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
     Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert'); //actually adding products
-
     //editing
     Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit'); //it just opening edit product page
-
-
     Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@update'); //it is actully updating products
-
-
-
-
-
-
     //deleting
     Route::delete('delete-product/{id}', 'App\Http\Controllers\Admin\ProductController@destroy')->name('product.destroy'); //it just
+
+
+    //fetch order form db on admin panel
+    Route::get('orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders');
+
+    //view single order details
+    Route::get('admin/view_order/{id}', 'App\Http\Controllers\Admin\OrderController@view')->name('admin.view_order');
 
 
 });

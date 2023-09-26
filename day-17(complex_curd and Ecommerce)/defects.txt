@@ -20,4 +20,4 @@ edit category issue
 add products issue
 
 feature products card smal and big
-continue shopping and checkout to proceed if conditions
+sweets alert issue
