@@ -8,8 +8,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-primary">
-                        <h4 class="text-white">New Orders
-                            <a href="{{ url('order_history') }}" class="btn btn-warning float-end">Order History</a>
+                        <h4 class="text-white"> Orders History
+                            <a href="{{ url('orders') }}" class="btn btn-warning float-end">New Orders</a>
                         </h4>
                     </div>
                     <div class="card-body">

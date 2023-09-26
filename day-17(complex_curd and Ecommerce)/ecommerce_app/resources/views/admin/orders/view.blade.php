@@ -65,14 +65,29 @@
                                 </table>
                                 <h5 class="px-2">Grand Total : <span class="float-end">{{ $orders->total_price }}</span>
                                 </h5>
-
-                                
+                                <div class="mt-5 px-2">
+                                    <label for="">Order Status</label>
+                                    <form action="{{ url('update_order/' . $orders->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <select class="form-select" name="order_status">
+                                            <option {{ $orders->status == '0' ? 'selected' : '' }} value="0">
+                                                Pending
+                                            </option>
+                                            <option {{ $orders->status == '1' ? 'selected' : '' }} value="1">
+                                                Completed
+                                            </option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary mt-3 float-end">Update Status</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

@@ -80,5 +80,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     //view single order details
     Route::get('admin/view_order/{id}', 'App\Http\Controllers\Admin\OrderController@view')->name('admin.view_order');
 
+    //Update order status like pending to completed
+
+    Route::PUT('update_order/{id}', 'App\Http\Controllers\Admin\OrderController@update');
+
+    //Get Order History
+    Route::get('order_history', 'App\Http\Controllers\Admin\OrderController@order_history');
+    //user
+    Route::get('users');
+
 
 });

@@ -21,3 +21,4 @@ add products issue
 
 feature products card smal and big
 sweets alert issue
+remove pink color in admin dashboard
