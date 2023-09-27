@@ -13,10 +13,14 @@
                 <a class="nav-link" href="{{ url('category') }}">Category</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('cart') }}">Cart</a>
+                <a class="nav-link" href="{{ url('cart') }}">Cart
+                    <span class="badge badge-pill bg-primary cart-count">0</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('wishlist') }}">Wishlist</a>
+                <a class="nav-link" href="{{ url('wishlist') }}">Wishlist
+                    <span class="badge badge-pill bg-success wishlist-count">0</span>
+                </a>
             </li>
             @auth
                 <li class="nav-item dropdown">
@@ -24,7 +28,8 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ auth()->user()->name }}
                     </a>
-                    <div style="padding-left: 10px padding-right: 10px;" class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <div style="padding-left: 10px padding-right: 10px;" class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">My Profile</a>
                         <a class="dropdown-item" href="{{ url('my_orders') }}">My Orders</a>
                         <div class="dropdown-divider"></div>

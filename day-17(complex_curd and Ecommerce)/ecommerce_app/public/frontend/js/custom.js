@@ -1,5 +1,40 @@
 $(document).ready(function () {
 
+        loadcart();
+        loadwishlist();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+    function loadcart(){
+        $.ajax({
+            type: "GET",
+            url: "/load-cart-data",
+
+            success: function (response) {
+                $('.cart-count').html('');
+                $('.cart-count').html(response.count);
+                // console.log(response.count);
+            }
+        });
+    }
+
+    function loadwishlist(){
+        $.ajax({
+            type: "GET",
+            url: "/load-wishlist-count",
+
+            success: function (response) {
+                $('.wishlist-count').html('');
+                $('.wishlist-count').html(response.count);
+                // console.log(response.count);
+            }
+        });
+    }
+
     // Add To Cart
     $('.addtoCartbtn').click(function (e) {
         e.preventDefault();
@@ -22,16 +57,13 @@ $(document).ready(function () {
             },
             success: function (response) {
                 alert(response.status); // Display the response message in an alert
+                loadcart();
                 if (response.status === 'Login to continue') {
                     console.log('Inside AJAX success function'); // Debugging line
                     // Redirect the user to the login page
                     window.location.href = "{{ route('login') }}"; // Note: This line may not work in a separate .js file
                 }
             },
-            error: function (xhr, status, error) {
-                console.log(xhr.responseText); // Log any error response for debugging
-                alert('An error occurred. Please try again.'); // Display an error message
-            }
         });
     });
 
@@ -48,6 +80,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 alert(response.status); // Display the response message in an alert
+                loadwishlist()
                 if (response.status === 'Login to continue') {
                     // console.log('Inside AJAX success function'); // Debugging line
                     // Redirect the user to the login page

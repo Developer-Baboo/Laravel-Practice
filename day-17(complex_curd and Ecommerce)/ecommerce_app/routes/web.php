@@ -31,6 +31,12 @@ Route::get('category/{cate_slug}/{prod_slug}','App\Http\Controllers\frontend\Fro
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Count product exist in cart and how on navbar
+
+Route::get('load-cart-data', [CartController::class, 'cartcount']);
+Route::get('load-wishlist-count', [WishListController::class, 'wishlistcount']);
+
+
 Route::post('/add-to-cart', [CartController::class, 'addProduct']);
 // delete product item from cart
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);

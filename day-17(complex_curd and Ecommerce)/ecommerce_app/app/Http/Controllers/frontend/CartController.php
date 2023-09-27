@@ -83,4 +83,11 @@ class CartController extends Controller
     }
 
 
+    // Count number of products exist in cart and show on navbar
+    function cartcount(){
+        $cartcount = Cart::where('user_id', Auth::id())->count();
+        return response()->json(['count'=> $cartcount]);
+    }
+
+
 }
