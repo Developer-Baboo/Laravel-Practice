@@ -52,8 +52,12 @@ Route::middleware(['auth'])->group(function (){
     // view order details
     Route::get('view_order_details/{id}', [UserController::class, 'view'])->name('view_order_details');
 
+    //get wish list item
     Route::get('wishlist', [WishListController::class, 'index']);
 
+
+    // remove items from wish list
+    Route::post('delete-wishlist-item', [WishListController::class, 'deleteitem']);
 
 });
 
