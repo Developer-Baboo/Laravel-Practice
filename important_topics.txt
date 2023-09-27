@@ -1,0 +1,29 @@
+ajax 39 large videos
+	ajax(curd)
+	json
+	rest api
+advance js 22
+bootstrap 39 big videos
+jquery 49 small videos
+flex = 16 small videos
+css grid 16 small videos
+css 142
+html 25
+js 107
+db 38
+php 261
+svg 20
+sass 23 samall videos
+news projects
+
+switch to different version of laravel and vuejs
+vuejs (old version)
+laravel master (old version)
+laravel 10 projects (old version)
+
+
+Typescript
+twilland css
+flexbox
+media query
+animations
