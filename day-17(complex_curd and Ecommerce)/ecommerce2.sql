@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 04:45 PM
+-- Generation Time: Sep 27, 2023 at 03:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,16 @@ CREATE TABLE `carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `prod_id`, `prod_qty`, `created_at`, `updated_at`) VALUES
+(23, '2', '4', '4', '2023-09-27 04:29:29', '2023-09-27 04:31:35'),
+(25, '2', '8', '2', '2023-09-27 04:29:52', '2023-09-27 04:30:23'),
+(27, '2', '1', '1', '2023-09-27 07:28:24', '2023-09-27 07:28:24'),
+(30, '2', '7', '1', '2023-09-27 09:59:30', '2023-09-27 09:59:30');
 
 -- --------------------------------------------------------
 
@@ -109,7 +119,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2023_09_21_074822_create_products_table', 1),
 (8, '2023_09_22_130158_create_carts_table', 1),
 (9, '2023_09_25_174024_create_orders_table', 1),
-(10, '2023_09_25_175915_create_order_items_table', 1);
+(10, '2023_09_25_175915_create_order_items_table', 1),
+(11, '2023_09_27_110702_create_wish_lists_table', 2);
 
 -- --------------------------------------------------------
 
@@ -286,7 +297,30 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `lname`, `phone`, `address1`, `address2`, `city`, `state`, `country`, `pincode`, `role_as`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Baboo', 'baboo@gmail.com', NULL, '$2y$10$LMLt325bycj6R7QYVWKLauq4BXjKDpb26cbMh9eotyVPxqS2plz1m', '0', '0', '', '', '', '', '', '', 1, 'i0G8khrijikVfHyAMNX68qB5zEZdBaIrckMDnfytgfaPqz4kBdMZ6ej5v4Tj', '2023-09-19 14:41:56', '2023-09-19 14:41:56'),
-(2, 'Mohan', 'mohan@gmail.com', NULL, '$2y$10$usZH6T3cRQV7awI/iuH6nOm5oW7RyhlPJNmmuNts81rba5FcZ3Ntq', 'kumar', '03422449445', 'Address1', 'Address2', 'Jamshoro', 'State', 'Pakistan', 'Pin Code', 0, 'hddeSJI0zYDkEyvoOE61RcXswvsGaB8YiWb315WAfkmXgTinS7HIV0A5XRLB', '2023-09-19 15:26:04', '2023-09-25 18:27:50');
+(2, 'Mohan', 'mohan@gmail.com', NULL, '$2y$10$usZH6T3cRQV7awI/iuH6nOm5oW7RyhlPJNmmuNts81rba5FcZ3Ntq', 'kumar', '03422449445', 'Address1', 'Address2', 'Jamshoro', 'State', 'Pakistan', 'Pin Code', 0, 'vMWIiiU6bV2dw2gF5ZjgZNOHpOiIiSLcoocsH2y4FfksejcmiwghSS7xP4qz', '2023-09-19 15:26:04', '2023-09-25 18:27:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wish_lists`
+--
+
+CREATE TABLE `wish_lists` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `prod_id` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wish_lists`
+--
+
+INSERT INTO `wish_lists` (`id`, `user_id`, `prod_id`, `created_at`, `updated_at`) VALUES
+(1, '2', '1', '2023-09-27 07:32:01', '2023-09-27 07:32:01'),
+(2, '2', '4', '2023-09-27 07:49:08', '2023-09-27 07:49:08'),
+(3, '2', '2', '2023-09-27 08:05:13', '2023-09-27 08:05:13');
 
 --
 -- Indexes for dumped tables
@@ -363,6 +397,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `wish_lists`
+--
+ALTER TABLE `wish_lists`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -370,7 +410,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -388,7 +428,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -419,6 +459,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `wish_lists`
+--
+ALTER TABLE `wish_lists`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
