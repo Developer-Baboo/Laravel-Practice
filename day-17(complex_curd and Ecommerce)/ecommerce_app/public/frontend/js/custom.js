@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // Add To Cart
     $('.addtoCartbtn').click(function (e) {
         e.preventDefault();
@@ -32,6 +33,33 @@ $(document).ready(function () {
                 alert('An error occurred. Please try again.'); // Display an error message
             }
         });
+    });
+
+    //Add to wish List
+    $('.addToWishlist').click(function (e) {
+        e.preventDefault();
+        var product_id = $(this).closest('.product_data').find('.prod_id').val();
+
+        $.ajax({
+            method: "POST",
+            url: "/add-to-wishlist",
+            data: {
+                'product_id': product_id,
+            },
+            success: function (response) {
+                alert(response.status); // Display the response message in an alert
+                if (response.status === 'Login to continue') {
+                    // console.log('Inside AJAX success function'); // Debugging line
+                    // Redirect the user to the login page
+                    window.location.href = "{{ route('login') }}"; // Note: This line may not work in a separate .js file
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText); // Log any error response for debugging
+                alert('An error occurred. Please try again.'); // Display an error message
+            }
+        });
+
     });
 
     // Increment quantity
@@ -89,6 +117,12 @@ $(document).ready(function () {
                 alert(response.status); // Display the response message in an alert
             }
         });
+    });
+
+    // remove item from wishlist
+    $('.remove-wishlist-item').click(function (e) {
+        e.preventDefault();
+        
     });
 
 

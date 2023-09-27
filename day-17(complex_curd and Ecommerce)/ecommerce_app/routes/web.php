@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\frontend\CheckoutController;
+use App\Http\Controllers\Frontend\WishListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,17 +37,22 @@ Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 //update cart (chagne total price on increment/decreemnt quantity)
 Route::post('update_cart', [CartController::class, 'update_cart']);
 
+//Add to wish list
+
+Route::post('add-to-wishlist', [WishListController::class, 'add'] );
+
+
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function (){
     Route::get('cart', [CartController::class, 'viewcart'] );
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::post('place_order', [CheckoutController::class, 'place_order'])->name('place_order');
-
     // getting order which i have did from db
     Route::get('my_orders', [UserController::class, 'index'])->name('my_orders');
-
     // view order details
     Route::get('view_order_details/{id}', [UserController::class, 'view'])->name('view_order_details');
+
+    Route::get('wishlist', [WishListController::class, 'index']);
 
 
 });
