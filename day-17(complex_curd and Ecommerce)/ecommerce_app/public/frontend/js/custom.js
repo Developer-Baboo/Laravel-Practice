@@ -59,7 +59,7 @@ $(document).ready(function () {
                 alert(response.status); // Display the response message in an alert
                 loadcart();
                 if (response.status === 'Login to continue') {
-                    console.log('Inside AJAX success function'); // Debugging line
+                    // console.log('Inside AJAX success function'); // Debugging line
                     // Redirect the user to the login page
                     window.location.href = "{{ route('login') }}"; // Note: This line may not work in a separate .js file
                 }
