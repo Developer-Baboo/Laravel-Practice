@@ -112,12 +112,11 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            type: "",
+            method:"POST",
             url: "/proceed-to-pay",
             data: data,
-            dataType: "dataType",
             success: function (response) {
-                
+                alert(response.total_price)
             }
         });
        }

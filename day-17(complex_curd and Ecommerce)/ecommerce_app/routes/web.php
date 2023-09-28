@@ -44,8 +44,9 @@ Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 Route::post('update_cart', [CartController::class, 'update_cart']);
 
 //Add to wish list
-
 Route::post('add-to-wishlist', [WishListController::class, 'add'] );
+
+
 
 
 //Only authenticated use can view cart
@@ -65,6 +66,8 @@ Route::middleware(['auth'])->group(function (){
     // remove items from wish list
     Route::post('delete-wishlist-item', [WishListController::class, 'deleteitem']);
 
+
+    Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
 });
 
 /*
