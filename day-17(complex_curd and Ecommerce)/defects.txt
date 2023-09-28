@@ -30,3 +30,12 @@ Change Quantity Wishlist issue
 
 
 disable boostrap jquery link then custom jquery will workout and vice versa
+
+
+
+- live
+- animations
+- remove bugs
+- sweet alert
+- payment integrations
+- 

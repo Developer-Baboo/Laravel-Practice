@@ -14,46 +14,55 @@ use App\Http\Controllers\Frontend\WishListController;
 // use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\ReviewController1;
 
-Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
-Route::get('category','App\Http\Controllers\frontend\FrontendController@category');
+Route::get('/', 'App\Http\Controllers\frontend\FrontendController@index');
 
-Route::get('view_category/{slug}','App\Http\Controllers\frontend\FrontendController@view_category')->name('view.category');
-Route::get('category/{cate_slug}/{prod_slug}','App\Http\Controllers\frontend\FrontendController@productview');
+Route::get('category', 'App\Http\Controllers\frontend\FrontendController@category');
+
+Route::get('view_category/{slug}', 'App\Http\Controllers\frontend\FrontendController@view_category')->name('view.category');
+
+Route::get('category/{cate_slug}/{prod_slug}', 'App\Http\Controllers\frontend\FrontendController@productview');
 
 Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Count product exist in cart and how on navbar
-
 Route::get('load-cart-data', [CartController::class, 'cartcount']);
+
+//Load Wishlist count
 Route::get('load-wishlist-count', [WishListController::class, 'wishlistcount']);
 
-
+//Add to cart
 Route::post('/add-to-cart', [CartController::class, 'addProduct']);
+
 // delete product item from cart
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
+
 //update cart (chagne total price on increment/decreemnt quantity)
 Route::post('update_cart', [CartController::class, 'update_cart']);
 
 //Add to wish list
-Route::post('add-to-wishlist', [WishListController::class, 'add'] );
-
-
-
+Route::post('add-to-wishlist', [WishListController::class, 'add']);
 
 //Only authenticated use can view cart
-Route::middleware(['auth'])->group(function (){
-    Route::get('cart', [CartController::class, 'viewcart'] );
+Route::middleware(['auth'])->group(function () {
+
+    //user can  view cart
+    Route::get('cart', [CartController::class, 'viewcart']);
+
+    //View Checkout page
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+
+    //Place Order Page
     Route::post('place_order', [CheckoutController::class, 'place_order'])->name('place_order');
+
     // getting order which i have did from db
     Route::get('my_orders', [UserController::class, 'index'])->name('my_orders');
+
     // view order details
     Route::get('view_order_details/{id}', [UserController::class, 'view'])->name('view_order_details');
 
-
-    // Route
-    // add-rating'
+    // add-rating
     Route::post('/add-rating', [RatingController::class, 'add_rating']);
 
     //Add Review
@@ -71,24 +80,45 @@ If a user is not authenticated, they won't be able to access any of the routes w
 If a user is authenticated but doesn't have the "isAdmin" role or permission, they also won't be able to access the routes within this group.
 Only authenticated users with the "isAdmin" role or permission will be able to access the routes inside this group.
 */
-Route::middleware(['auth', 'isAdmin'])->group(function(){
-    Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index'); //opening dashboard page
-    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index'); //opening category page
-    Route::get('add-categories', 'App\Http\Controllers\Admin\CategoryController@add'); //it just open add category Page
-    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert'); //it actually add category
-    Route::get('edit-category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit'); //it just opening edit category page
-    Route::put('update-category/{id}', 'App\Http\Controllers\Admin\CategoryController@update'); //it just actually editing category data
-    Route::delete('delete-category/{id}', 'App\Http\Controllers\Admin\CategoryController@destroy')->name('category.destroy'); //it just actually destroying category
-   //Products Routes
-    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index'); //it just dispalying projduct
-    Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add'); //it just open add product Page
-    Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert'); //actually adding products
-    //editing
-    Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit'); //it just opening edit product page
-    Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@update'); //it is actully updating products
-    //deleting
-    Route::delete('delete-product/{id}', 'App\Http\Controllers\Admin\ProductController@destroy')->name('product.destroy'); //it just
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    //opening dashboard page
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index');
 
+    //opening category page
+    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index');
+
+    //it just open add category Page
+    Route::get('add-categories', 'App\Http\Controllers\Admin\CategoryController@add');
+
+    //it actually add category
+    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert');
+
+    //it just opening edit category page
+    Route::get('edit-category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit');
+
+    //it just actually editing category data
+    Route::put('update-category/{id}', 'App\Http\Controllers\Admin\CategoryController@update');
+
+    // Deleting Category
+    Route::delete('delete-category/{id}', 'App\Http\Controllers\Admin\CategoryController@destroy')->name('category.destroy');
+
+    //Fetching all products details
+    Route::get('products', 'App\Http\Controllers\Admin\ProductController@index');
+
+    //Adding Products
+    Route::get('add-products', 'App\Http\Controllers\Admin\ProductController@add');
+
+    //inserting products
+    Route::post('insert-product', 'App\Http\Controllers\Admin\ProductController@insert');
+
+    //Editing Products
+    Route::get('edit-product/{id}', 'App\Http\Controllers\Admin\ProductController@edit');
+
+    //Update Products
+    Route::put('update-product/{id}', 'App\Http\Controllers\Admin\ProductController@update');
+
+    //deleting prodducts
+    Route::delete('delete-product/{id}', 'App\Http\Controllers\Admin\ProductController@destroy')->name('product.destroy');
 
     //fetch order form db on admin panel
     Route::get('orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders');
@@ -103,13 +133,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function(){
     //Get Order History
     Route::get('order_history', 'App\Http\Controllers\Admin\OrderController@order_history');
 
-    //Show Registered Users on Admin Dashboard
+    //Show all Registered Users on Admin Dashboard
     Route::get('users', [DashboardController::class, 'users']);
 
-    //Get single users details
-
-    // view_user
+    // Admin can view individual registered user details
     Route::get('view_user/{id}', [DashboardController::class, 'view_user']);
-
-
 });
