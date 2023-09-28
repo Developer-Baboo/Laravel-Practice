@@ -150,9 +150,8 @@
                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                         Rate this product
                     </button>
-
-                    <a href="{{ url('add_review/'.$products->slug. '/userreview') }}" class="btn btn-link" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
-                        Rate this product
+                    <a href="{{ url('add_review/'.$products->slug. '/userreview') }}" class="btn btn-link" class="btn btn-link">
+                        Write a Review
                     </a>
                 </div>
             </div>

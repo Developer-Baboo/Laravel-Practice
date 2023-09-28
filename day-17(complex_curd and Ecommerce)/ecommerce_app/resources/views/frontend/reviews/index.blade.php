@@ -3,7 +3,7 @@
     Review
 @endsection
 @section('content')
-<div class="container">
+<div class="container py-5">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -13,7 +13,7 @@
                         <form action="0" method="POST">
                             <input type="hidden" name="product_id" value="{{ $product->name }}" >
                             <textarea name="user_review" class="form-control" rows="5" placeholder="Write a review" ></textarea>
-                            <button class="btn btn-primary">Submit a Review</button>
+                            <button class="btn btn-primary mt-3">Submit a Review</button>
                         </form>
                         @else
                         <div class="alert alert-danger">
@@ -21,6 +21,7 @@
                             <p>
                                 For the trustworthiness of the reviews, only customers who purchased this product can write a revieew about the product
                             </p>
+                            <a href="{{ url('home') }}" class="btn btn-warning mt-3" >Go To Home Page</a>
                         </div>
                     @endif
                 </div>
