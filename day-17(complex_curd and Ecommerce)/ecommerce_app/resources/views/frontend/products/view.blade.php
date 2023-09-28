@@ -20,7 +20,6 @@
                         <div class="rating-css">
                             <div class="star-icon">
                                 @if ($user_rating)
-
                                     @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
                                         <input type="radio" value="{{ $i }}" name="product_rating" checked
                                             id="rating{{ $i }}">
@@ -148,9 +147,13 @@
                         {!! $products->description !!}
                     </p>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                         Rate this product
                     </button>
+
+                    <a href="{{ url('add_review/'.$products->slug. '/userreview') }}" class="btn btn-link" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                        Rate this product
+                    </a>
                 </div>
             </div>
         </div>

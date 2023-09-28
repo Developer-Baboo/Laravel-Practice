@@ -30,6 +30,7 @@
                                 <img class="w-100 h-100" src="{{ asset('assets/uploads/product/'.$prod->image) }}" alt="Product Image" style="object-fit: cover;">
                             </div>
                             <div class="card-body text-center">
+                                {{-- <h1>Hello</h1> --}}
                                 <h5 class="card-title">{{ $prod->name }}</h5>
                                 <span class="float-start">{{ $prod->selling_price}}</span>
                                 <span class="float-end"><s>{{ $prod->original_price }}</s></span>

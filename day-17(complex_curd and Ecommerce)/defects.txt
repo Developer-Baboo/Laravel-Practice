@@ -26,3 +26,7 @@ remove pink color in admin dashboard
 
 
 Change Quantity Wishlist issue
+
+
+
+disable boostrap jquery link then custom jquery will workout and vice versa

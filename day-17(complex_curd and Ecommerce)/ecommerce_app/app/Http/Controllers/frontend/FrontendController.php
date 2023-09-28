@@ -16,6 +16,8 @@ class FrontendController extends Controller
         // Retrieve 15 trending products from the database
         $featured_products = Product::where('trending', '1')->take(15)->get();
 
+        // dd($featured_products);
+
         // Retrieve 15 popular categories from the database
         $trending_categories = Category::where('popular', '1')->take(15)->get();
 
@@ -60,7 +62,7 @@ class FrontendController extends Controller
                 $products = Product::where('slug', $prod_slug)->first();
                 $ratings = Rating::where('prod_id', $products->id)->get();
                 $rating_sum = Rating::where('prod_id', $products->id)->sum('stars_rated');
-                
+
                 $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
                 if($ratings->count() > 0)
                 {
