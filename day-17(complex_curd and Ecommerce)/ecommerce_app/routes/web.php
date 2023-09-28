@@ -9,18 +9,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\frontend\CheckoutController;
+use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\WishListController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/','App\Http\Controllers\frontend\FrontendController@index');
 Route::get('category','App\Http\Controllers\frontend\FrontendController@category');
@@ -59,14 +49,15 @@ Route::middleware(['auth'])->group(function (){
     // view order details
     Route::get('view_order_details/{id}', [UserController::class, 'view'])->name('view_order_details');
 
+
+    // Route
+    // add-rating'
+    Route::post('/add-rating', [RatingController::class, 'add_rating']);
+
     //get wish list item
     Route::get('wishlist', [WishListController::class, 'index']);
 
-
-    // remove items from wish list
-    Route::post('delete-wishlist-item', [WishListController::class, 'deleteitem']);
-
-
+    //Used for payment
     Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
 });
 
