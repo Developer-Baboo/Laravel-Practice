@@ -25,7 +25,7 @@
                                             id="rating{{ $i }}">
                                         <label for="rating{{ $i }}" class="fa fa-star"></label>
                                     @endfor
-                                    @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++)
+                                    @for ($j = $user_rating->stars_rated + 1; $j <= 5; $j++)
                                         <input type="radio" value="{{ $j }}" name="product_rating"
                                             id="rating{{ $j }}">
                                         <label for="rating{{ $j }}" class="fa fa-star"></label>
@@ -139,20 +139,55 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <hr>
+                        <h3>Description</h3>
+                        <p class="mt-3">
+                            {!! $products->description !!}
+                        </p>
+                    </div>
                     <hr>
-                    <h3>Description</h3>
-                    <p class="mt-3">
-                        {!! $products->description !!}
-                    </p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
-                        Rate this product
-                    </button>
-                    <a href="{{ url('add_review/'.$products->slug. '/userreview') }}" class="btn btn-link" class="btn btn-link">
-                        Write a Review
-                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                            Rate this product
+                        </button>
+                        <a href="{{ url('add_review/' . $products->slug . '/userreview') }}" class="btn btn-link"
+                            class="btn btn-link">
+                            Write a Review
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        @foreach ($reviews as $item)
+                            <div class="user_review">
+                                <label for="">{{ $item->user->name . ' ' . $item->user->lname }}</label>
+                                @if ($item->user_id == Auth::id())
+                                    <a href="{{ url('edit_review/' . $products->slug . '/userreview') }}">Edit</a>
+                                @endif
+                                <br />
+                                @php
+                                    $rating = App\Models\Rating::where('prod_id', $products->id)
+                                        ->where('user_id', $item->user->id)
+                                        ->first();
+                                @endphp
+                                @if ($rating)
+                                    @php $user_rated = $rating->stars_rated @endphp
+                                    @for ($i = 1; $i <= $user_rated; $i++)
+                                        <i class="fa fa-star checked"></i>
+                                    @endfor
+                                    @for ($j = $user_rated + 1; $j <= 5; $j++)
+                                        <i class="fa fa-star"></i>
+                                    @endfor
+                                @endif
+                                <small>Reviewed on {{ $item->created_at->format('d M Y') }} </small>
+                                <p>
+                                    {{ $item->user_review }}
+                                </p>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
