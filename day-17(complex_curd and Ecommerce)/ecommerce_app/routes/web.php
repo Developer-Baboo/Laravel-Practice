@@ -65,8 +65,11 @@ Route::middleware(['auth'])->group(function () {
     // add-rating
     Route::post('/add-rating', [RatingController::class, 'add_rating']);
 
-    //Add Review
+    //Add Review just open page
     Route::get('add_review/{product_slug}/userreview', [ReviewController1::class, 'add']);
+
+    // actually add review
+    Route::post('add_review', [ReviewController1::class, 'create']);
 
     //get wish list item
     Route::get('wishlist', [WishListController::class, 'index']);

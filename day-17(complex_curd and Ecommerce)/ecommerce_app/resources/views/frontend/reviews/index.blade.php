@@ -10,8 +10,9 @@
                 <div class="card-body">
                     @if($verified_purchase)
                         <h5>You are writing a review for {{ $product->name }} </h5>
-                        <form action="0" method="POST">
-                            <input type="hidden" name="product_id" value="{{ $product->name }}" >
+                        <form action="{{ url('/add_review') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id}}" >
                             <textarea name="user_review" class="form-control" rows="5" placeholder="Write a review" ></textarea>
                             <button class="btn btn-primary mt-3">Submit a Review</button>
                         </form>
