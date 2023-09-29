@@ -1,11 +1,11 @@
-hhttps://www.youtube.com/watch?v=wrZ-mgLVKB4&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&index=34
-1:27
+https://www.youtube.com/watch?v=Yv-VrxzJgrg&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&index=38
+16:24
 
 
 
 Laravel Service container vs Service provider : https://www.youtube.com/watch?v=Ls3ELZPt37Q
 Ajax + Laravel Curd app https://www.youtube.com/watch?v=scNJCwX9S-8
-Laravel 10 CRUD With Image Upload using jQuery Ajax with SweetAlert and DataTables : https://www.youtube.com/watch?v=Ipvsg9Q8UIE
+Laravel 10 CRUD With Image Upload using jQuery Ajax with SweetAlert and DataTables : https://www.youtube.com/watch?v=Ipvsg9Q8UIE (done)
 Facade In Laravel Application-What Why And How? | Laravel 9 Facades | Custom facade | Ajay [HINDI] : https://www.youtube.com/watch?v=bR0pW4IQmPw
 
 middlware : https://www.youtube.com/watch?v=E0vAQ60YlXM
@@ -25,7 +25,7 @@ totall 36 videos
 add to cart laravel : https://www.youtube.com/watch?v=JRPjVooFVj4
 
 
-Ecommerece: https://www.youtube.com/watch?v=Fz0pTzHptGE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&ab_channel=SharmaCoder 		
+Ecommerece: https://www.youtube.com/watch?v=Fz0pTzHptGE&list=PL_99hMDlL4d3-n63bsNaaDRnTZdCOvU6q&ab_channel=SharmaCoder(Done) 		
 typescript: https://www.youtube.com/watch?v=Ek0LMDfTupE&list=PLwGdqUZWnOp0xfHQFmlL52b_6-QZ0mnk_&index=5&ab_channel=ThapaTechnical
 complex: curd https://www.youtube.com/watch?v=T-fV_T6IfDc&ab_channel=CodeAgent
 rest api from scritech: https://www.youtube.com/watch?v=N9RKm7LJUjo&t=2s&ab_channel=TutsPrime
@@ -53,7 +53,6 @@ SVG : https://www.youtube.com/watch?v=7zVanhJDtUI&list=PL0b6OzIxLPbxaPpusPu2mtfc
 flex-box : https://www.youtube.com/watch?v=-65YXXhJvOE&list=PL0b6OzIxLPbw5xyi8Q6cdR05Gz-0x-vaf&ab_channel=YahooBaba
 advance js : https://www.youtube.com/watch?v=IUFJzLlf2cE&list=PL0b6OzIxLPbzvz4j1N4J8zCY8mu3l29MG&ab_channel=YahooBaba
 jquery 46 : https://www.youtube.com/watch?v=QvaFeU0LWnc&list=PL0b6OzIxLPbzSyiC0PFaqeabe1aGhfrbW&ab_channel=YahooBaba
-
 ajax,json : 39 https://www.youtube.com/watch?v=ACitNEo8sKw&list=PL0b6OzIxLPbxO0_8Av3c-9_l5RM5uJK8U&ab_channel=YahooBaba
 
 

@@ -18,6 +18,7 @@ class OrderController extends Controller
 
     function update(Request $request, $id){
         $orders = Order::find($id);
+            // We're updating the 'status' field of the found order with the value from the 'order_status' input in the Request object.
         $orders->status = $request->input('order_status');
         $orders->update();
         return redirect('orders')->with('status', 'Order Updated Successfully');

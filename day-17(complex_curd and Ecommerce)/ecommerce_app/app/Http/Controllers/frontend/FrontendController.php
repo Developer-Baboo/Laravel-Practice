@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Rating;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -13,6 +15,8 @@ class FrontendController extends Controller
     public function index(){
         // Retrieve 15 trending products from the database
         $featured_products = Product::where('trending', '1')->take(15)->get();
+
+        // dd($featured_products);
 
         // Retrieve 15 popular categories from the database
         $trending_categories = Category::where('popular', '1')->take(15)->get();
@@ -56,9 +60,17 @@ class FrontendController extends Controller
             if(Product::where('slug', $prod_slug)->exists()){
                 // Retrieve the product with the matching 'prod_slug'
                 $products = Product::where('slug', $prod_slug)->first();
+                $ratings = Rating::where('prod_id', $products->id)->get();
+                $rating_sum = Rating::where('prod_id', $products->id)->sum('stars_rated');
 
-                // Return the 'frontend.products.view' view, passing the retrieved product data to the view
-                return view('frontend.products.view',  compact('products'));
+                $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
+                if($ratings->count() > 0)
+                {
+                    $rating_value = $rating_sum/$ratings->count();
+                }else{
+                    $rating_value = 0;
+                }
+                return view('frontend.products.view',  compact('products', 'ratings', 'rating_value', 'user_rating'));
             }else{
                 // Redirect to the homepage with a status message if the product doesn't exist
                 return redirect('/')->with('status', 'The link was broken');
