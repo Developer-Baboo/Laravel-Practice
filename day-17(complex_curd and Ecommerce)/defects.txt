@@ -40,6 +40,8 @@ user is giving review without purchase?
 
 Jquery and bootstrap link issue
 
+out of stock issue
+
 #freatures
 - live
 - animations

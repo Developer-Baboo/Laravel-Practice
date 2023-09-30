@@ -56,7 +56,7 @@ $(document).ready(function () {
                 'product_qty': product_qty,
             },
             success: function (response) {
-                alert(response.status); // Display the response message in an alert
+                swal("", response.status, "success"); // Display the response message in an alert
                 loadcart();
                 if (response.status === 'Login to continue') {
                     // console.log('Inside AJAX success function'); // Debugging line
@@ -79,7 +79,7 @@ $(document).ready(function () {
                 'product_id': product_id,
             },
             success: function (response) {
-                alert(response.status); // Display the response message in an alert
+                swal("", response.status, "success"); // Display the response message in an alert
                 loadwishlist()
                 if (response.status === 'Login to continue') {
                     // console.log('Inside AJAX success function'); // Debugging line
@@ -137,6 +137,7 @@ $(document).ready(function () {
     //Delete product cart item
     $('.delete-cart-item').click(function (e) {
         e.preventDefault();
+        console.log("Delete button clicked");
 
         var prod_id = $(this).closest('.product_data').find('.prod_id').val();
         $.ajax({
@@ -145,9 +146,11 @@ $(document).ready(function () {
             data: {
                 'prod_id':prod_id,
             },
-            dataType: "dataType",
             success: function (response) {
-                alert(response.status); // Display the response message in an alert
+                // console.log(response);
+                // window.location.reload();
+                $('.cartitem').load(location.href + " .cartitem");
+                swal("", response.status, "success"); // Display the response message in an alert
             }
         });
     });
@@ -164,7 +167,7 @@ $(document).ready(function () {
             },
             dataType: "dataType",
             success: function (response) {
-                alert(response.status); // Display the response message in an alert
+                 swal("", response.status, "success"); // Display the response message in an alert
             }
         });
     });
