@@ -58,3 +58,11 @@
     width:30%;
     margin-left: 5%;
 }
+
+
+.whatsapp-chat
+{
+    bottom:10px;
+    left:10px;
+    position:fixed;
+}

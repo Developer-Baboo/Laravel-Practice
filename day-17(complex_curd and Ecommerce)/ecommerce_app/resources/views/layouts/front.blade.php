@@ -57,32 +57,40 @@
         }
     </style>
 </head>
-@include('layouts.inc.frontenav')
-<div class="content">
-    @yield('content')
-</div>
 
-{{-- Below both link of owl carousel --}}
-<script src="{{ asset('frontend/js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/checkout.js') }}"></script>
+<body>
+    @include('layouts.inc.frontenav')
+    <div class="content">
+        @yield('content')
+    </div>
 
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+923422449445?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
+            <img src="{{ asset('assets/icon.png') }}" alt="" height="80px" width="80px" >
+        </a>
+    </div>
 
-<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-</script>
+    {{-- Below both link of owl carousel --}}
+    <script src="{{ asset('frontend/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/custom.js') }}"></script>
+    <script src="{{ asset('frontend/js/checkout.js') }}"></script>
 
 
-{{-- Boostrap js and jquery CDN --}}
-{{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+
+
+    {{-- Boostrap js and jquery CDN --}}
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -95,39 +103,39 @@
 
 
 
-{{-- Sweet alert --}}
-{{-- <script src="{{ asset('frontend/js/sweetalert.min.js')}}"></script> --}}
+    {{-- Sweet alert --}}
+    {{-- <script src="{{ asset('frontend/js/sweetalert.min.js')}}"></script> --}}
 
-{{-- /////////////////////  Jquery auto complete code                  //////////////////////////////////// --}}
-{{-- Jquery auto Complete 2 link sbelow --}}
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script>
-    var availableTags = [];
-    $.ajax({
-        type: "GET",
-        url: "/product-list",
-        success: function(response) {
-            // console.log(response);
-            startAutoComplete(response);
-        }
-    });
-
-    function startAutoComplete(availableTags) {
-
-        $("#search_product").autocomplete({
-            source: availableTags
-        });
-    }
-</script>
-{{-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
-<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
-@if (session('status'))
+    {{-- /////////////////////  Jquery auto complete code                  //////////////////////////////////// --}}
+    {{-- Jquery auto Complete 2 link sbelow --}}
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script>
-        swal("{{ session('status') }}");
+        var availableTags = [];
+        $.ajax({
+            type: "GET",
+            url: "/product-list",
+            success: function(response) {
+                // console.log(response);
+                startAutoComplete(response);
+            }
+        });
+
+        function startAutoComplete(availableTags) {
+
+            $("#search_product").autocomplete({
+                source: availableTags
+            });
+        }
     </script>
-@endif
-@yield('scripts')
+    {{-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+        <script>
+            swal("{{ session('status') }}");
+        </script>
+    @endif
+    @yield('scripts')
 </body>
 
 </html>
