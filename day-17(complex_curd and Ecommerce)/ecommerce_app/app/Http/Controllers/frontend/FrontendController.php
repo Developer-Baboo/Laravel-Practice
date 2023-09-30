@@ -82,14 +82,33 @@ class FrontendController extends Controller
         }
     }
 
+    //get product from db and show while search
     function productlistAjax(){
         $products = Product::select('name')->where('status', '0')->get();
         $data = [];
+
+
 
         foreach ($products as $item) {
             $data[] = $item['name'];
         }
 
         return $data;
+    }
+
+    function searchproduct(Request $request){
+        $searched_product = $request->product_name;
+        if($searched_product){
+            $product = Product::where("name", "LIKE", "%$searched_product%")->first();
+            if($product)
+            {
+                return redirect('category/'.$product->category->slug.'/'.$product->slug);
+            }
+            else{
+                    return redirect()->back()->with("status", "No Products matched your search");
+            }
+        }else{
+            return redirect()->back();
+        }
     }
 }

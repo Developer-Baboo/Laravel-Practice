@@ -107,13 +107,18 @@
     $.ajax({
         type: "GET",
         url: "/product-list",
-        success: function (response) {
-            console.log(response);
+        success: function(response) {
+            // console.log(response);
+            startAutoComplete(response);
         }
     });
-    $("#search_product").autocomplete({
-        source: availableTags
-    });
+
+    function startAutoComplete(availableTags) {
+
+        $("#search_product").autocomplete({
+            source: availableTags
+        });
+    }
 </script>
 {{-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
 <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>

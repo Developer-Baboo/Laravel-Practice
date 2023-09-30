@@ -2,11 +2,14 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">E-SHOP</a>
         <div class="search-bar">
-            <div class="input-group">
-                <input type="search" id="search_product" class="form-control" placeholder="Search Products" aria-label="Username"
-                    aria-describedby="basic-addon1">
-                <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-            </div>
+            <form action="{{ url('searchproduct') }}" method="POST">
+                @csrf
+                <div class="input-group">
+                    <input type="search" name="product_name" id="search_product" required class="form-control" placeholder="Search Products"
+                         aria-describedby="basic-addon1">
+                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -26,6 +26,8 @@ Route::get('category/{cate_slug}/{prod_slug}', 'App\Http\Controllers\frontend\Fr
 //Search functionality
 
 Route::get('product-list', 'App\Http\Controllers\frontend\FrontendController@productlistAjax');
+Route::post('searchproduct', 'App\Http\Controllers\frontend\FrontendController@searchproduct');
+
 
 Auth::routes();
 
