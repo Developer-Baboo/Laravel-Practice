@@ -44,6 +44,11 @@ Route::post('update_cart', [CartController::class, 'update_cart']);
 //Add to wish list
 Route::post('add-to-wishlist', [WishListController::class, 'add']);
 
+//remove from wish list
+Route::post('delete-wishlist-item', [WishListController::class, 'deleteitem']);
+
+
+
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function () {
 

@@ -96,7 +96,8 @@ $(document).ready(function () {
     });
 
     // Increment quantity
-    $('.increment-btn').click(function (e) {
+    // $('.increment-btn').click(function (e) {
+        $(document).on('click','.increment-btn', function (e) {
         e.preventDefault();
 
         var inc_value = $(this).closest('.product_data').find('.qty-input').val();
@@ -112,7 +113,8 @@ $(document).ready(function () {
     });
 
     // Decrement quantity
-    $('.decrement-btn').click(function (e) {
+    // $('.decrement-btn').click(function (e) {
+    $(document).on('click','.decrement-btn', function (e) {
         e.preventDefault();
 
         var dec_value = $(this).closest('.product_data').find('.qty-input').val();
@@ -137,7 +139,7 @@ $(document).ready(function () {
     //Delete product cart item
     $('.delete-cart-item').click(function (e) {
         e.preventDefault();
-        console.log("Delete button clicked");
+        // console.log("Delete button clicked");
 
         var prod_id = $(this).closest('.product_data').find('.prod_id').val();
         $.ajax({
@@ -147,6 +149,7 @@ $(document).ready(function () {
                 'prod_id':prod_id,
             },
             success: function (response) {
+                loadcart();
                 // console.log(response);
                 // window.location.reload();
                 $('.cartitem').load(location.href + " .cartitem");
@@ -165,8 +168,11 @@ $(document).ready(function () {
             data: {
                 'prod_id':prod_id,
             },
-            dataType: "dataType",
             success: function (response) {
+                loadwishlist();
+                // console.log(response);
+                // window.location.reload();
+                $('.wishlistitems').load(location.href + " .wishlistitems");
                  swal("", response.status, "success"); // Display the response message in an alert
             }
         });
@@ -174,7 +180,9 @@ $(document).ready(function () {
 
 
     //jasaa user increment/decrement kra product quantity ko to sath sath total price decrease/increase ho
-    $(".changeQuantity").click(function (e) {
+
+    // $(".changeQuantity").click(function (e) {
+    $(document).on('click','.changeQuantity', function (e) {
         e.preventDefault();
         //take product id
         var prod_id = $(this).closest('.product_data').find('.prod_id').val();
@@ -188,7 +196,8 @@ $(document).ready(function () {
             url: "update_cart",
             data: data,
             success: function (response) {
-                window.location.reload();
+                // window.location.reload();
+                $('.cartitem').load(location.href + " .cartitem");
             }
         });
     });
