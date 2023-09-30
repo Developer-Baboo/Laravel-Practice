@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\frontend\CheckoutController;
+use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\WishListController;
 // use App\Http\Controllers\Frontend\ReviewController;
@@ -21,6 +22,10 @@ Route::get('category', 'App\Http\Controllers\frontend\FrontendController@categor
 Route::get('view_category/{slug}', 'App\Http\Controllers\frontend\FrontendController@view_category')->name('view.category');
 
 Route::get('category/{cate_slug}/{prod_slug}', 'App\Http\Controllers\frontend\FrontendController@productview');
+
+//Search functionality
+
+Route::get('product-list', 'App\Http\Controllers\frontend\FrontendController@productlistAjax');
 
 Auth::routes();
 

@@ -51,3 +51,10 @@
 .checked{
     color:#fad900;
 }
+
+/* frontnavbar */
+
+.search-bar{
+    width:30%;
+    margin-left: 5%;
+}

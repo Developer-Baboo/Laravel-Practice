@@ -82,5 +82,14 @@ class FrontendController extends Controller
         }
     }
 
-    
+    function productlistAjax(){
+        $products = Product::select('name')->where('status', '0')->get();
+        $data = [];
+
+        foreach ($products as $item) {
+            $data[] = $item['name'];
+        }
+
+        return $data;
+    }
 }
