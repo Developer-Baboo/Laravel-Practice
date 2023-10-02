@@ -201,4 +201,18 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    $('#buttonxyz').click(function (e) {
+        e.preventDefault();
+        $('#exampleModal').modal('show');
+
+    });
+
+    $('.closeModal').click(function (e) {
+        e.preventDefault();
+        $('#exampleModal').modal('hide');
+
+    });
 });
+

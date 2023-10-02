@@ -12,7 +12,7 @@
                     <input type="hidden" name="product_id" value="{{ $products->id }}">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Rate {{ $products->name }} </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary"> Submit </button>
                     </div>
                 </form>
@@ -151,7 +151,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                        <button id="buttonxyz"type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                             Rate this product
                         </button>
                         <a href="{{ url('add_review/' . $products->slug . '/userreview') }}" class="btn btn-link"
