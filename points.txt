@@ -1,0 +1,38 @@
+section 52
+1 project also
+architecure is the design apttern that has
+specific framework has
+xamp 7.4.4 (releaesed on march 19, 2022)
+php 7.2 and above
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.4/xampp-windows-x64-7.4.4-1-VC15-installer.exe/download
+
+app main folder of app where models and controls exist
+configuration contains all folders related with configurations
+database folder contains seeders, migrations, and factories
+public folder contains js,css and index.php files
+
+htaccess used for security purposes
+resource contain file which we compile
+env file contain alll the files which are related with databases
+
+
+Certainly! In Laravel, these files are related to package management and dependencies:
+
+composer.json: This file lists the PHP packages (libraries) your Laravel project depends on. It also contains project-specific settings and autoloading rules.
+
+composer.lock: This file stores the exact versions of the packages installed in your project. It ensures that all team members are using the same package versions, avoiding compatibility issues.
+
+package.json: This file is used for managing JavaScript packages and tools for your Laravel application. It includes details about Node.js packages and front-end build scripts.
+
+package-lock.json: Similar to composer.lock, this file stores the exact versions of Node.js packages installed. It guarantees consistency in the packages used across different environments.
+
+
+
+If the multi-editing shortcut Ctrl+D isn't working as expected in Visual Studio Code for your Laravel project, there are a few steps you can take to debug and potentially fix the issue:
+
+1. Check Keybindings:
+First, make sure that Ctrl+D is indeed the correct shortcut for multi-editing in Visual Studio Code. Go to File -> Preferences -> Keyboard Shortcuts and search for editor.action.addSelectionToNextFindMatch. Check if Ctrl+D is assigned to this action.
+
+2. Check for Conflicts:
+Ensure that Ctrl+D is not conflicting with any other shortcut or extension in VS Code. Conflicting shortcuts can prevent the default behavior. You can check for conflicts by searching for the shortcut in the Keyboard Shortcuts settings.
+laravel 7

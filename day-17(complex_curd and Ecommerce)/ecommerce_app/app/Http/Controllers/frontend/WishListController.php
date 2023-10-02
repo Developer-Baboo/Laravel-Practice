@@ -16,11 +16,13 @@ class WishListController extends Controller
         $wishlist = WishList::where('user_id', Auth::id())->get();
         return view('frontend.wishlist', compact('wishlist'));
     }
+
     // Add function add product to wish list
     function add(Request $request){
         if(Auth::check()){
             $prod_id = $request->input('product_id');
             if(Product::find($prod_id)){
+                 // Create a new wishlist item and save it to the database
                 $wish = new WishList();
                 $wish->prod_id = $prod_id;
                 $wish->user_id = Auth::id();

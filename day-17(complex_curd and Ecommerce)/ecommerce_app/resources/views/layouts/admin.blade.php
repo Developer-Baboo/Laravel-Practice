@@ -57,5 +57,14 @@
     <script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js')}}"  ></script>
     <script src="{{ asset('admin/js/plugins/chartjs.min.js')}}"  ></script>
     @yield('scripts');
+
+
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+        <script>
+            swal("{{ session('status') }}");
+        </script>
+    @endif
+    @yield('scripts')
 </body>
 </html>
