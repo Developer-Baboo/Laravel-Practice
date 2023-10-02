@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
+    <style>
+        @keyframes count-up {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card h5 {
+            animation: count-up 1.5s ease-out;
+            /* Animation duration and easing */
+        }
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,15 +30,16 @@
 
     <title>@yield('title')</title>
 
-   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <!-- Styles -->
 
@@ -33,6 +53,7 @@
 
 
 </head>
+
 <body class="g-sidenav-show bg-gray-200">
     <!-- Sidebar -->
     @include('layouts.inc.sidebar')
@@ -51,11 +72,11 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('admin/js/core/popper.min.js')}}"  ></script>
-    <script src="{{ asset('admin/js/core/bootstrap.min.js')}}"  ></script>
+    <script src="{{ asset('admin/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/js/core/bootstrap.min.js') }}"></script>
     {{-- <script src="{{ asset('admin/js/core/jquery.min.js')}}"  ></script> --}}
-    <script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js')}}"  ></script>
-    <script src="{{ asset('admin/js/plugins/chartjs.min.js')}}"  ></script>
+    <script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('admin/js/plugins/chartjs.min.js') }}"></script>
     @yield('scripts');
 
 
@@ -66,5 +87,35 @@
         </script>
     @endif
     @yield('scripts')
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countUpElements = document.querySelectorAll('.card h5');
+
+            countUpElements.forEach(element => {
+                const originalValue = parseInt(element.textContent, 10);
+                if (!isNaN(originalValue)) {
+                    element.textContent = '0';
+
+                    const increment = Math.ceil(originalValue /
+                    30); // Divide by the number of frames (30 frames per second)
+                    let currentValue = 0;
+
+                    const interval = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= originalValue) {
+                            element.textContent = originalValue;
+                            clearInterval(interval);
+                        } else {
+                            element.textContent = currentValue;
+                        }
+                    }, 1000 / 30); // Update 30 times per second (30 frames per second)
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

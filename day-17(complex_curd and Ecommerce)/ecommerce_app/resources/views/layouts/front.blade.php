@@ -106,7 +106,7 @@
     {{-- Sweet alert --}}
     {{-- <script src="{{ asset('frontend/js/sweetalert.min.js')}}"></script> --}}
 
-    {{-- /////////////////////  Jquery auto complete code                  //////////////////////////////////// --}}
+    {{-- /////////////////////  Jquery auto complete code  //////////////// --}}
     {{-- Jquery auto Complete 2 link sbelow --}}
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -128,7 +128,7 @@
             });
         }
     </script>
-    {{-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
+    {{-- //////////////////////////////////////////////////////////////// --}}
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
     @if (session('status'))
         <script>

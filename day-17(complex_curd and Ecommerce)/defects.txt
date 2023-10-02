@@ -16,13 +16,11 @@ remove pink color in admin dashboard
 
 Change Quantity Wishlist issue
 
-disable boostrap jquery link then custom jquery link will workout and vice versa
-
 user is giving review without purchase?
 
-Jquery and bootstrap link issue
-
 out of stock issue
+
+place order man name remove kr da to error
 
 #freatures
 - live
@@ -36,4 +34,14 @@ out of stock issue
 boostrap cdn enable
 stars rating show
 boostrap rating model show(bakend i have used bootstrap jquery cdn)
-crousal,and other feature of custom jquery not work not showing 
+crousal,and other feature of custom jquery not work not showing
+
+
+pdf reports 
+email sending
+active inactive user
+reject approve users
+user can update his details not his email
+zoom and zoom out image functionaltiy
+
+ 
