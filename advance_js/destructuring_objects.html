@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Object</title>
+</head>
+<body>
+    <script>
+       /*  let user = {
+                name: "Baboo Kumar Heerani ",
+                age: 25,
+                city: "Mithi Tharparkar",
+            }
+        let {name, age, city} = user;
+        // let {name, city} = user; //error age is missing
+
+        console.log(name);
+        console.log(age);
+        console.log(city); */
+
+
+         /* let user = {
+                name: "Baboo Kumar Heerani ",
+                age: 25,
+                city: "Mithi Tharparkar",
+            }
+            let { name, city } = user;
+            console.log(name);
+            console.log(city); */
+
+        
+             let user = {
+                    name: "Baboo Kumar Heerani ",
+                    age: 25,
+                    city: "Mithi Tharparkar",
+                }
+                let { name:n, age:a, city:c} = user;
+                console.log(n);
+                console.log(a);
+                console.log(c);
+    </script>
+    
+</body>
+</html>
