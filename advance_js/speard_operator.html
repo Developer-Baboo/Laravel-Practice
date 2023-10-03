@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+    <script>
+
+        // rest opeartor convert the multiple arguments into one array
+        //agr multiple argument ko array man convert krka rest opertor ko denga to wo us array ko
+        //ek element ocnsider kraga for that we  use spread operator
+
+        // let arr = [1,2];
+        // sum("Yahoo baba", ...arr); //here it is a spread operator, it seend the array element in arguments, hmaesha calling ka time usa hoga, rest hmesha funciton declare ka time honga
+
+
+        /* unction sum(name, ...args){
+            console.log(arguments);
+            document.write(` Hello ${name} : `);
+            let sum = 0;
+            for(let i in args){
+                sum+=args[i];
+            }
+            document.write(`Sum : ${sum}`);
+        }
+        let array = [10, 20,20];
+        // sum("Baboo Kumar", array); //it will consider array element as one
+        sum("Baboo Kumar", ...array); // now it will conisder as all element */
+
+        // example
+        /* var arr1 = [10,20,30,40];
+        var arr2 = [...arr1];
+        arr1.push(50);
+
+        // console.log(arr); // print aray
+        // console.log(...arr); // print aray as spread/indivdually
+        // console.log([...arr]); // made copy
+        console.log(arr1); //made copy and clone too
+        console.log(arr2); // made copy but not clone, mtlb arr man kuch bhi change krenga to us ka effect arr1 pa nhi hoga
+    */
+
+    //Concatention method
+    // old method
+    /* var arr1 = [10,20];
+    var arr2 = [30,40];
+    var arr3 = arr1.concat(arr2);
+    console.log(arr3); */
+
+    // new method
+    /* var arr1 = [10, 20];
+        var arr2 = [30, 40];
+        var arr3 = [4,4,...arr1, ...arr2,4]; //during oncatenation we can add other values like this
+        console.log(arr3); */
+
+
+     //it also works on objects, like concatenation two objects
+    /*  var obj1 = {
+            "name" : "Baboo"
+     }
+     var obj2 = {
+        "age":32
+     }
+
+     var obj3 = {...obj1, ...obj2};
+     console.log(obj3); */
+
+    </script>
+</body>
+</html>
