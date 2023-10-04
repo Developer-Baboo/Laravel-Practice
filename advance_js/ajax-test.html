@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advance Js</title>
+</head>
+<body>
+    <h1>Advance Js</h1>
+    <p id="demo">Here we load data</p>
+    <!-- when click on button below functions run out -->
+    <button onclick="loadData()">Click</button>
+
+    <script>
+        /* //is object ka through hum server ko request send krenga
+        // server sa response kalye hum below 2 method use krta han ek open and send,
+        //aga man ajx use kr rha hoon
+      var xhttp = new XMLHttpRequest();
+      //it check all time ka server sa respond aya ka nhi is man sirf ek condition check krta han server sa responde ya ka nhi
+      xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            //agr response aya tha to demo ka innherhtml man response rext set krdo, only demo will referesh not the whole page
+            document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      
+      //first method, second file ka nam jis ko access krna ha ya phir server pa bhajna chahta han
+      //here we tell which file we wanna open and what will be their mode and file name and asychronous mode
+      xhttp.open("GET", "filename.txt", true);
+      xhttp.send(); //server ko request send krta han */
+
+
+
+
+      function loadData(){
+        //made class object through which we will send request to server for below file
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                console.log(this.responseText);
+            }
+        };
+
+        xhttp.open('GET', "content/readme.txt", true);
+        xhttp.send();
+      }
+      https://www.youtube.com/watch?v=4bMQjDrsMwE&list=PL0b6OzIxLPbzvz4j1N4J8zCY8mu3l29MG&index=15
+    //   19:32
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
