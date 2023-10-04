@@ -1,0 +1,6 @@
+main.js:import
+birdge.js:  work as bridge between
+library.js: export
+
+libarary export to birdge
+bridge export to main
