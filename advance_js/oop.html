@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>OOP</h1>
+    <script>
+        // alert()
+        // document.write()
+        //method tell what your class can do
+        //method only use properties which is defined inside that classs
+        // each object represent their class
+        // method call using that class object
+        //usign objects we can use all methods and properties can be accessed
+        // we can also set parameter and arguments like we do in functions
+        
+        /* class hello{
+            message(){
+                document.write("helllo everyone")
+            }
+            sorry(){
+                  document.write("sorry for everyone")
+            }
+        }
+        let a = new hello();
+        a.message();
+        a.sorry(); */
+
+        //Constructor call automatically when we create his objects
+
+        /* class student{
+            constructor(){
+                document.write("Constructor functions ");
+            }
+        }
+        let a = new student();
+        let b = new student(); */
+
+        /* class student{
+                constructor() {
+                    let name
+                    document.write("Constructor functions ");
+                }
+                hello() {
+                    document.write("Hello  " + this.name);
+                }
+            }
+            let a = new student(); // constructor call
+            a.name = "Baboo Kumar"; // assign value
+            a.hello(); // calling function */
+
+        /* class student {
+                constructor(name) {
+                    this.studentname = name;
+                    document.write("Constructor functions " + this.studentname);
+                }
+                hello() {
+                    document.write("Hello  " + this.studentname);
+                }
+            }
+            let a = new student("baboo kumar"); // constructor call
+            a.hello(); // calling function */
+
+            //End es6 we don't use the backtick instead of + opeartor
+            class student {
+                    constructor(name,age) {
+                        this.studentname = name;
+                        this.studentage = age;
+                        console.log(`Constructor functions `);
+                    }
+                    hello() {
+                        document.write(`Your name  ${this.studentname} and your age: ${this.studentage}`);
+                    }
+                    static staticMethod(){
+                        console.log("static method");
+                    }
+                }
+                let a = new student("baboo kumar",25); // constructor call
+                let b = new student("mohan kumar",21); // constructor call
+                a.hello(); // calling function
+                b.hello(); // calling function
+                student.staticMethod();
+
+
+    </script>
+</body>
+</html>
