@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advance Js</title>
+    <style>
+        /* CSS Styles */
+        .styled-table {
+            width: 100%;
+            /* border-width: 5px; */
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .styled-table th, .styled-table td {
+            padding: 10px;
+            text-align: left;
+            border: 10px solid red;
+        }
+
+        .styled-table th {
+            background-color: #f2f2f2;
+            color: #007bff; /* Set color for table headers */
+        }
+
+        .styled-table th.name, .styled-table th.email {
+            color: green; /* Set color for specific headers (name and email) */
+        }
+
+        .styled-table td.name, .styled-table td.email {
+            color: blue; /* Set color for specific cells (name and email) */
+        }
+
+        .styled-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .styled-table th, .styled-table td, .styled-table tr {
+            border: 1px solid #007bff; /* Set border color for the entire table */
+        }
+
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+        Title <input type="text" id="titleText"><br> <br>
+        Body <input type="text" id="bodyText"><br> <br>
+        User Id <input type="text" id="user_id"><br> <br>
+        <input type="submit" id="saveForm">
+    </form>
+
+    <script>
+        /* fetch("content/readme.txt")
+        .then((response)=>{
+            return response.text();
+        }).then((data)=>{
+            console.log(data);
+        });  */
+
+        // short method
+        /* fetch("content/readme.txt")
+                .then(response => response.text())
+                .then(data=>console.log(data));  */
+
+
+        //Fetch fake users data using json
+       /* fetch("https://jsonplaceholder.typicode.com/users")
+            .then(response => response.json())
+            .then(data => {
+                // Create a table element
+                var table = document.createElement("table");
+                table.classList.add("styled-table"); // Add a class to the table for styling
+                // Create table header row
+                var headerRow = table.insertRow();
+                var nameHeader = headerRow.insertCell(0);
+                nameHeader.classList.add("name"); // Add class for name header
+                var emailHeader = headerRow.insertCell(1);
+                emailHeader.classList.add("email"); // Add class for email header
+                var cityHeader = headerRow.insertCell(2);
+                emailHeader.classList.add("city"); // Add class for email header
+                nameHeader.textContent = "Name";
+                emailHeader.textContent = "Email";
+                cityHeader.textContent = "City";
+                // Iterate through the fetched data and populate the table
+                for (var x in data) {
+                    var row = table.insertRow();
+                    var nameCell = row.insertCell(0);
+                    var emailCell = row.insertCell(1);
+                    var cityCell = row.insertCell(2);
+                    nameCell.textContent = data[x].name;
+                    emailCell.textContent = data[x].email;
+                    cityCell.textContent = data[x].address.city;
+                }
+                // Append the table to the document body
+                document.body.appendChild(table);
+            })
+            .catch(error => console.log(error)); */
+
+
+    //Fetch data from json file
+    /* fetch("Json/student_data.json")
+    .then(response => response.json())
+    .then(data=>{
+        console.log(data);
+        for(var x in data){
+            var a = `${data[x].name} - ${data[x].age} - ${data[x].city}  <br />`
+            document.write(a);
+        }
+    })
+    .catch((error) => document.write("can't fetch data")); 
+ */
+
+ // convert data into json and send them to server
+ // Json.stringify.. send data to sever injson format
+ // for inserting data we use post
+ //body ka andr data ya to form wala format man hota ha ya phir json format man
+ //body ka andro js object man data hota ha us ko direct server pa send kr sakhta ha us ko pehla json Stringy ka thourgh json man convert krka bhajta han
+
+
+
+
+
+ /* fetch("Json/student_data1.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            for (var x in data) {
+                var a = `${data[x].name} - ${data[x].age} - ${data[x].city}  <br />`
+                document.write(a);
+            }
+        })
+        .catch((error) => document.write("can't fetch data"));  */
+
+
+
+
+
+
+
+
+    // Inserting data on server
+    /* fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        method: 'PUT',
+        body: JSON.stringify({
+            id: 1,
+            title: 'foo',
+            body: 'bar',
+            userId: 1,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((error) => document.write("can't fetch data")); */
+
+
+
+
+
+    //other example of Inserting Record
+   /*  var obj = {
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    }
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json))
+            .catch((error) => document.write("can't fetch data")); */
+
+
+        //Get data from sever and send to server by converting to json, not objects to  server
+        // Note: Actual life man hum object bna kr user sa value nhi lata han
+        //blka form sa lata han data which is created above in body tag
+    /* document.getElementById('myForm').addEventListener("submit", function (e) {
+            // Avoid form reloading page
+            e.preventDefault();
+            var obj = {
+                title: document.getElementById("titleText").value,
+                body: document.getElementById("bodyText").value,
+                userId: document.getElementById("user_id").value,
+            }
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify(obj),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json))
+                .catch((error) => console.log("Error:", error));
+        }); */
+
+
+
+
+
+
+
+
+        // in above we are sending form data first converting them to json then sending to database
+        // below we are sending form data directly, but no output becuase that is not our server
+         /* document.getElementById('myForm').addEventListener("submit", function (e) {
+                // Avoid form reloading page
+                e.preventDefault();
+                fetch('https://jsonplaceholder.typicode.com/posts', {
+                    method: 'POST',
+                    body: new FormData(document.getElementById("myform")),
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json))
+                    .catch((error) => console.log("Error:", error));
+            }); */
+
+            
+    </script>
+</body>
+</html>

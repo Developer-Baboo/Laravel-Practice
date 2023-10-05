@@ -1,0 +1,20 @@
+ajax+jquery+php = >
+jquery+ajax = code chote ho jata ha
+$.ajax()
+$.get()
+$.post() 
+disadanvatge: we have to incude in everyone page of 100kb extra load on website
+
+
+
+ajax+js using new feature xhmlRequest
+disavatge we have to do un necessay code
+so developer prefer to use xmlHttpRequest
+
+
+
+now we can do all these with fetch like curd
+
+
+becuase of short code we use jquery
+https://roadmap.sh/typescript

@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Baboo Kumar",
+        "age" : 25,
+        "city" : "diplo"
+    },
+    {
+        "name" : "Mohan Kumar",
+        "age" : 25,
+        "city" : "diplo"
+    },
+    {
+        "name" : "Suahil Kumar",
+        "age" : 25,
+        "city" : "diplo"
+    },
+    {
+        "name" : "ishaq Kumar",
+        "age" : 25,
+        "city" : "diplo"
+    },
+    {
+        "name" : "suneel Kumar",
+        "age" : 25,
+        "city" : "diplo"
+    }
+]
