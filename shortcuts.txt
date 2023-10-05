@@ -1,0 +1,13 @@
+ctrl+shift+f  = global serach
+ctrl+~ = hide and show termainal
+ctrl+f = find word in current file
+ctrl+d = find and search same words
+ctrl+l = select line
+alt+z = format
+ctrol+shift+ k = delete current line
+ctrl+p = search file
+shift+alt+arrow below = duplicate select line of code
+alt+arrwo up/down = move line below and above
+ctrl+shift+n = new vscode
+Ctrl + Shift + P = command plate
+shift+alt+a = block of code ko comment krna

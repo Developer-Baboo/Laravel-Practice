@@ -14,25 +14,30 @@ use App\Http\Controllers\Frontend\WishListController;
 // use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\ReviewController1;
 
+//Front Home Page
 Route::get('/', 'App\Http\Controllers\frontend\FrontendController@index');
 
+//Show categories
 Route::get('category', 'App\Http\Controllers\frontend\FrontendController@category');
 
+//View categories
 Route::get('view_category/{slug}', 'App\Http\Controllers\frontend\FrontendController@view_category')->name('view.category');
 
+// viewing a specific product within a category
 Route::get('category/{cate_slug}/{prod_slug}', 'App\Http\Controllers\frontend\FrontendController@productview');
 
-//Search functionality
-
+//Search functionality just get product list
 Route::get('product-list', 'App\Http\Controllers\frontend\FrontendController@productlistAjax');
+
+//Actual Search Product
 Route::post('searchproduct', 'App\Http\Controllers\frontend\FrontendController@searchproduct');
 
-
+// Generate authentication routes for the application
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Count product exist in cart and how on navbar
+//Count product exist in cart and how they will be shown on navbar
 Route::get('load-cart-data', [CartController::class, 'cartcount']);
 
 //Load Wishlist count
@@ -44,7 +49,7 @@ Route::post('/add-to-cart', [CartController::class, 'addProduct']);
 // delete product item from cart
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
 
-//update cart (chagne total price on increment/decreemnt quantity)
+//update cart (change total price on increment/decrement quantity)
 Route::post('update_cart', [CartController::class, 'update_cart']);
 
 //Add to wish list
@@ -52,8 +57,6 @@ Route::post('add-to-wishlist', [WishListController::class, 'add']);
 
 //remove from wish list
 Route::post('delete-wishlist-item', [WishListController::class, 'deleteitem']);
-
-
 
 //Only authenticated use can view cart
 Route::middleware(['auth'])->group(function () {
@@ -87,7 +90,6 @@ Route::middleware(['auth'])->group(function () {
 
     //update
     Route::PUT('update_review', [ReviewController1::class, 'update']);
-
 
     //get wish list item
     Route::get('wishlist', [WishListController::class, 'index']);

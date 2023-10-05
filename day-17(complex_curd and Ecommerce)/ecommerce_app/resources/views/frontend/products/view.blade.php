@@ -19,18 +19,26 @@
                     <div class="modal-body">
                         <div class="rating-css">
                             <div class="star-icon">
+                                <!-- Check if user has provided a rating -->
                                 @if ($user_rating)
+                                    <!-- Loop through user's rated stars -->
                                     @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
+                                    <!-- Create a radio input with the value equal to current star rating -->
                                         <input type="radio" value="{{ $i }}" name="product_rating" checked
                                             id="rating{{ $i }}">
+                                        <!-- Create a label for the radio input representing a star icon -->
                                         <label for="rating{{ $i }}" class="fa fa-star"></label>
                                     @endfor
+                                    <!-- Loop through remaining stars to make them unchecked -->
                                     @for ($j = $user_rating->stars_rated + 1; $j <= 5; $j++)
+                                    <!-- Create unchecked radio inputs for remaining stars -->
                                         <input type="radio" value="{{ $j }}" name="product_rating"
                                             id="rating{{ $j }}">
+                                            <!-- Create labels for remaining stars representing star icons -->
                                         <label for="rating{{ $j }}" class="fa fa-star"></label>
                                     @endfor
                                 @else
+                                <!-- If user has not rated, show all stars as unchecked -->
                                     <input type="radio" value="1" name="product_rating" checked id="rating1">
                                     <label for="rating1" class="fa fa-star"></label>
                                     <input type="radio" value="2" name="product_rating" id="rating2">
@@ -151,7 +159,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <!-- Button trigger modal -->
-                        <button id="buttonxyz"type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                        <button id="buttonxyz"type="button" class="btn btn-link" data-toggle="modal"
+                            data-target="#exampleModal">
                             Rate this product
                         </button>
                         <a href="{{ url('add_review/' . $products->slug . '/userreview') }}" class="btn btn-link"

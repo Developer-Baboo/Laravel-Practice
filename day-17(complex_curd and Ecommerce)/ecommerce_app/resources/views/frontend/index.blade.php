@@ -1,5 +1,4 @@
 @extends('layouts.front')
-
 @section('title')
     Welcome to E-Shop
 @endsection
@@ -14,6 +13,7 @@
         });
     </script>
     @endif
+{{-- Add Slider --}}
 @include('layouts.inc.slider')
 
 {{-- Product section --}}
