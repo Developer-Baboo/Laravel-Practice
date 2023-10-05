@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Advance Js</title>
+</head>
+
+<body>
+    <script>
+        //working like promise, in promise there was complication ka hr bar we write the resolve and reject
+        //promise came first in es6 
+        //async came in ES 2017 version
+
+
+        //Normal funciton
+        /* function test(){
+            return "hello";
+        }
+        console.log(test()); */
+
+        //below function will return a promise
+        /* async function test() {
+            return "hello";
+        }
+        console.log(test()); */
+
+
+
+        /* //when function return any thing then will run and we will dispaly 
+        //value which came as return value from function
+        async function test() {
+                return "hello";
+            }
+            //upper jo respone arha ha us ko hum necha then ka ag response man save krta han phir necha onsolve krta han
+        test().then((result)=>{
+            console.log(result);
+        }); */
+
+
+
+        //short Methods
+        /* let test = async() => "Hello";
+        test().then((result)=>{
+            console.log(result);
+        }); */
+
+
+
+        //Await
+        //example
+        /* async function test(){
+            console.log("A");
+            await console.log("B"); //necha wala code last man chlaga b ka aga wait kraga and seedha function ka barh wala code run hoga
+            console.log("C");
+        }
+        test();
+        console.log("D");
+        console.log("E"); */
+        //using fetch we fetch data form server, sometimes data is not fetch, to ya aga wala code run krga phir wapis await pa ayagai check kraga ka data aya ka nhi agr aya to us aga wala code run kraga
+
+
+
+
+        //Another Example
+        /* async function test(){
+            console.log("2: Message");
+            const response = await fetch("json/student_data.json");
+            console.log("3: Message");
+            const students = await response.json();
+
+            return students;
+        }
+
+        console.log("1: Message");
+        let a = test();
+        console.log("4: message");
+        console.log(a); */
+
+
+
+        /* async function test(){
+            const response = await fetch("json/student_data.json");
+            const students = await response.json();
+            return students;
+        }
+        test().then((res) =>{
+            console.log(res);
+        }).catch((error)=>{
+            console.log(error);
+        }); */
+
+
+        // short method of above call
+        /*  async function test() {
+                 return(await fetch("json/student_data.json")).json() 
+             }
+             test().then((res) => {
+                 console.log(res);
+             }).catch((error) => {
+                 console.log(error);
+             }) */
+
+
+        //Error handing using try and catch
+        async function test() {
+            try {
+                const response = await fetch("json/student_data.json");
+                const students = await response.json();
+                return students;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        test().then((res) => {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>
