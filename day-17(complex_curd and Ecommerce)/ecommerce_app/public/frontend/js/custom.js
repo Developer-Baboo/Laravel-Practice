@@ -1,8 +1,6 @@
 $(document).ready(function () {
-
         loadcart();
         loadwishlist();
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -35,19 +33,22 @@ $(document).ready(function () {
         });
     }
 
-    // Add To Cart
+    // // Attach a click event handler to elements with the class '.addtoCartbtn'
     $('.addtoCartbtn').click(function (e) {
-        e.preventDefault();
+        e.preventDefault();// Prevent the default form submission behavior
 
+         // Retrieve the product ID and quantity from the clicked element's parent container
         var product_id = $(this).closest('.product_data').find('.prod_id').val();
         var product_qty = $(this).closest('.product_data').find('.qty-input').val();
 
+        // Set up AJAX headers to include the CSRF token for security
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
+         // Send an AJAX POST request to the '/add-to-cart' URL with product data
         $.ajax({
             method: "POST",
             url: "/add-to-cart",
@@ -55,6 +56,8 @@ $(document).ready(function () {
                 'product_id': product_id,
                 'product_qty': product_qty,
             },
+
+            // When came success response below code will run
             success: function (response) {
                 swal("", response.status, "success"); // Display the response message in an alert
                 loadcart();
