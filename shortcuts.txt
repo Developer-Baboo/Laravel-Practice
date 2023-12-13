@@ -6,8 +6,20 @@ ctrl+l = select line
 alt+z = format
 ctrol+shift+ k = delete current line
 ctrl+p = search file
-shift+alt+arrow below = duplicate select line of code
+shift+alt+arrow below = duplicate select lines of code
 alt+arrwo up/down = move line below and above
 ctrl+shift+n = new vscode
 Ctrl + Shift + P = command plate
 shift+alt+a = block of code ko comment krna
+ctrl+p = type > and choose services what ever you want
+ctrl+p = type : and enter line number
+holder alt button and you can write in multiple field
+keep cursor in brackets then holde cursor and press other alert you can write same words in many alerts
+ alert()
+Better comments extensions
+change termainal color/termainal name
+on terminal switch between words ctrol+ ->/<-
+
+
+
+
