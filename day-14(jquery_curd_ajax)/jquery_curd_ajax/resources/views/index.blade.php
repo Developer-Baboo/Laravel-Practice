@@ -78,6 +78,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="emp_id" id="emp_id">
@@ -108,6 +109,7 @@
           <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Employee</button>
         </div>
       </form>
+
     </div>
   </div>
 </div>
@@ -116,6 +118,7 @@
   <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     $(function() {
 
@@ -252,6 +255,6 @@
         });
       }
     });
-  </script>
+  </script
 </body>
 </html>

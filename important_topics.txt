@@ -20,8 +20,6 @@ switch to different version of laravel and vuejs
 vuejs (old version)
 laravel master (old version)
 laravel 10 projects (old version)
-
-
 Typescript
 twilland css
 flexbox

@@ -1,6 +1,7 @@
 gitignore sa env remove krna hota ha 
 composer install
 npm install
+make env file
 php artisan key:generate
 php artisan serve
 
