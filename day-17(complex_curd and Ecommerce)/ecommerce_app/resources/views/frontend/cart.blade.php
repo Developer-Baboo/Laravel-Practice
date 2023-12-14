@@ -69,4 +69,14 @@
         @endif
     </div>
 </div>
+<script>
+        dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            'event': 'cartViewed',
+            'cart': {
+                'products': @json($cartitems), // Assuming $cartitems is an array of products
+                'total': {{ $total }}
+            }
+        });
+    </script>
 @endsection

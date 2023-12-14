@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">E-SHOP</a>
+        <button id="mybtn">034224449445</button>
         <div class="search-bar">
             <form action="{{ url('searchproduct') }}" method="POST">
                 @csrf
