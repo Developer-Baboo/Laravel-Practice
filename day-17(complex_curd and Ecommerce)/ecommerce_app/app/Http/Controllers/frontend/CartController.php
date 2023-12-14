@@ -49,6 +49,7 @@ class CartController extends Controller
     // View cart page
     function viewcart(){
         $cartitems = Cart::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        // dd($cartitems);
         return view('frontend.cart', compact('cartitems'));
     }
 

@@ -24452,6 +24452,7 @@ hr.horizontal.gray-light {
 
   .sidenav.fixed-start+.main-content {
     margin-left: 17.125rem;
+    overflow-x:hidden;
   }
 
   .sidenav.fixed-end+.main-content {
