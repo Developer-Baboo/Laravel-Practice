@@ -2,17 +2,27 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GoogleContoller;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FrontendController;
-use App\Http\Controllers\frontend\CheckoutController;
-use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\RatingController;
-use App\Http\Controllers\Frontend\WishListController;
-// use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\ReviewController1;
+use App\Http\Controllers\frontend\CheckoutController;
+// use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Frontend\WishListController;
+use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
+
+// Google Auth
+
+Route::get('auth/google', [GoogleContoller::class, 'loginWithGoogle'])->name('login_1');
+
+Route::any('auth/google/callback', [GoogleContoller::class, 'callbackFromGoogle'])->name('callback');
+
+
+
 
 //Front Home Page
 Route::get('/', 'App\Http\Controllers\frontend\FrontendController@index');

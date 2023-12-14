@@ -68,3 +68,12 @@
         </div>
     </div>
 </nav>
+<script>
+   function trackProductSearch() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+         'event': 'productSearch',
+         'searchTerm': document.getElementById('search_product').value
+      });
+   }
+</script>
