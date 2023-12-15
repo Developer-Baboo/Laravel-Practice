@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController1;
 use App\Http\Controllers\frontend\CheckoutController;
@@ -21,6 +22,11 @@ Route::get('auth/google', [GoogleContoller::class, 'loginWithGoogle'])->name('lo
 
 Route::any('auth/google/callback', [GoogleContoller::class, 'callbackFromGoogle'])->name('callback');
 
+//FAcebookAuth
+//auth/facebook
+route::get('auth/facebook', [FacebookController::class, 'facebookpage'])->name('facebook_login');
+
+route::get('auth/facebook/callback', [FacebookController::class, 'facebookredirect']);
 
 
 
