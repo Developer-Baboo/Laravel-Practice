@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers\Admin;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use App\Notifications\ProductNotification;
 
 class ProductController extends Controller
 {
@@ -55,6 +57,14 @@ class ProductController extends Controller
 
         // Save the product to the database
         $product->save();
+
+
+        $users = User::all();
+
+        // Send notification to each user
+        foreach ($users as $user) {
+            $user->notify(new ProductNotification($product));
+        }
 
         // Redirect to the products page with a success message
         return redirect('products')->with('status', "Product Added Successfully");
