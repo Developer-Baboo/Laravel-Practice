@@ -76,6 +76,7 @@
     <div class="content">
         @yield('content')
     </div>
+    @include('layouts.inc.frontfooter')
 
     <div class="whatsapp-chat">
         <a href="https://wa.me/+923422449445?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">

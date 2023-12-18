@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.front')
+@section('title')
+    Reset Page
+@endsection
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -62,4 +63,5 @@
         </div>
     </div>
 </div>
+<br><br>
 @endsection

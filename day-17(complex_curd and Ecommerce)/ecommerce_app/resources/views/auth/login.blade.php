@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.front')
+@section('title')
+    Login Page
+@endsection
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -56,9 +58,13 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <a href="{{route('login_1')}}">Login with Google</a>
+                                <button type="button" class="btn btn-link btn btn-primary" onclick="window.location.href='{{ route('login_1') }}'">
+            <i class="fab fa-google"></i> Login with Google1
+        </button>
 
-                                <a href="{{route('facebook_login')}}">Login with Facebook</a>
+        <button type="button" class="btn btn-link" onclick="window.location.href='{{ route('facebook_login') }}'">
+            <i class="fab fa-facebook"></i> Login with Facebook1
+        </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -73,4 +79,5 @@
         </div>
     </div>
 </div>
+<br><br>
 @endsection

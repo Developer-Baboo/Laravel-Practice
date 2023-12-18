@@ -19,6 +19,9 @@
 
     <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-hQN9WdFYYQ5kPvc6KEaJLpYHSD8a1GOuJpc6LfnRT5bqkg9HObKcLbSb3UZ2KhSm1LU5mnV8kXBWv44F3Gw2pA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

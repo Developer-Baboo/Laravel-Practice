@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.front')
+@section('title')
+    Verify Email Page
+@endsection
 
 @section('content')
 <div class="container">

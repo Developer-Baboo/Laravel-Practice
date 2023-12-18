@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.front')
+@section('title')
+   Confirm Page
+@endsection
 
 @section('content')
 <div class="container">
@@ -46,4 +49,5 @@
         </div>
     </div>
 </div>
+<br> <br>
 @endsection

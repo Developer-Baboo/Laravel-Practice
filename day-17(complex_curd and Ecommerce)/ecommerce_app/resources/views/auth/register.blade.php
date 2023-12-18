@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.front')
+@section('title')
+    Register Page
+@endsection
 
 @section('content')
 <div class="container mt-5">
@@ -74,4 +77,5 @@
         </div>
     </div>
 </div>
+<br><br>
 @endsection
