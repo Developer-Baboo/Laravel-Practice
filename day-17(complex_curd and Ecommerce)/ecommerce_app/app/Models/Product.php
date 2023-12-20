@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $table = "products";
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'cate_id',
         'name',
@@ -27,8 +30,8 @@ class Product extends Model
     ];
 
 
-    function category(){
+    function category()
+    {
         return $this->belongsTo(Category::class, 'cate_id', 'id');
     }
-
 }

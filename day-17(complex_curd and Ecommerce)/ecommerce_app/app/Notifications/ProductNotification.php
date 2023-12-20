@@ -37,12 +37,13 @@ class ProductNotification extends Notification
     {
         return (new MailMessage)
             ->subject('New Product Added: ' . $this->product->name)
-            ->line('Dear ' . $notifiable->name . ',')
+            ->line('Dear Sir/ Madam ' . $notifiable->name . ',')
             ->line('We are excited to inform you that a new product has been added to our catalog.')
             ->line('Product Details:')
             ->line('Name: ' . $this->product->name)
             ->line('Description: ' . $this->product->description)
-            ->line('Price: $' . number_format($this->product->price, 2))
+            ->line('Original Price: $' . number_format($this->product->original_price, 10))
+            ->line('Selling Price: $' . number_format($this->product->selling_price, 10))
             ->line('View Product: ' . url("/products/{$this->product->id}"))
             ->line('Thank you for choosing our products. If you have any questions, feel free to contact us.');
     }
