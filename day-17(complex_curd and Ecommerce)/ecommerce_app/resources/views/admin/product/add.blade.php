@@ -3,6 +3,9 @@
     Add Product
 @endsection
 @section('content')
+<div id="loading-overlay" style="display: none;">
+    <div id="loading-spinner"></div>
+</div>
 <div class="card">
     <div class="card-header">
         <h4>Add Product</h4>

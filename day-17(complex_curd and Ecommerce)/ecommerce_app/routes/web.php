@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\mailCheckController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController1;
 use App\Http\Controllers\frontend\CheckoutController;
@@ -16,6 +17,10 @@ use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
 
+
+//Check user already exist route
+// Route::post('/', 'mailCheckController@');
+Route::post('/check-email', 'App\Http\Controllers\mailCheckController@checkEmail');
 // Google Auth
 
 Route::get('auth/google', [GoogleContoller::class, 'loginWithGoogle'])->name('login_1');

@@ -19,7 +19,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
+                                    <input id="name" type="text"!
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -45,6 +45,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div id="email-error-message" class="text-danger"></div>
                                 </div>
                             </div>
 
@@ -137,5 +138,34 @@
                 });
             });
         });
+
+
+        $(document).ready(function () {
+        $("#email").focusout(function () {
+            var email = $(this).val();
+
+            // Make an AJAX request to check if the email exists
+            $.ajax({
+                type: "POST",
+                url: "/check-email", // Replace with your actual route or endpoint
+                data: {
+                    email: email
+                },
+                success: function (response) {
+                    if (response.exists) {
+                        $("#email-error-message").text("This email already exists in the database.");
+                    } else {
+                        $("#email-error-message").text("");
+                    }
+                },
+                error: function (error) {
+                    console.error("Error checking email existence:", error);
+                }
+            });
+        });
+    });
+
+
+
     </script>
 @endsection
