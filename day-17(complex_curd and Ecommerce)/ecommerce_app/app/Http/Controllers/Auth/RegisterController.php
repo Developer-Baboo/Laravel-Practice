@@ -25,6 +25,12 @@ namespace App\Http\Controllers\Auth;
      {
          return '/otp_verify';
      }
+
+     protected function redirectToo(Request $request)
+     {
+         return '/otp_verify';
+     }
+
  
      // ...
  
