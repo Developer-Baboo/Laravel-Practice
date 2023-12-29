@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -18,7 +19,7 @@ use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
 
 
-
+Route::view('/otp_verify', 'otp_verify')->name('otp_verify');
 // Route::post('/check-email', 'App\Http\Controllers\mailCheckController@checkEmail');
 
 //Check user already exist route
@@ -59,8 +60,12 @@ Route::post('searchproduct', 'App\Http\Controllers\frontend\FrontendController@s
 
 // Generate authentication routes for the application
 Auth::routes();
+// Route::get("/", function () {
+//     return view("welcome");
+// });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Count product exist in cart and how they will be shown on navbar
 Route::get('load-cart-data', [CartController::class, 'cartcount']);
