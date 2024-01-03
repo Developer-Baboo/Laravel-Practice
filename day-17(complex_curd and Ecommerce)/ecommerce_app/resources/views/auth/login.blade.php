@@ -55,20 +55,20 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                <button type="submit" class="btn btn-light">
+                                    <img src="{{ asset('assets/login-icon.png') }}" alt="Login Icon" height="30%" width="30%"> {{ __('Login') }}
                                 </button>
-                                <button type="button" class="btn btn-link btn btn-primary" onclick="window.location.href='{{ route('login_1') }}'">
-            <i class="fab fa-google"></i> Login with Google1
-        </button>
+                                <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('login_1') }}'">
+                                    <img src="{{ asset('assets/google-icon.png') }}" alt="Google Icon" height="50%" width="50%">
+                                </button>
 
-        <button type="button" class="btn btn-link" onclick="window.location.href='{{ route('facebook_login') }}'">
-            <i class="fab fa-facebook"></i> Login with Facebook1
-        </button>
+                                <button type="button" class="btn btn-light" onclick="window.location.href='{{ route('facebook_login') }}'">
+                                    <img src="{{ asset('assets/facebook-icon.png') }}" alt="Facebook Icon" height="50%" width="50%">
+                                </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="btn btn-light" href="{{ route('password.request') }}">
+                                        <img src="{{ asset('assets/reset-icon.png') }}" alt="Reset Icon" height="40%" width="40%">
                                     </a>
                                 @endif
                             </div>

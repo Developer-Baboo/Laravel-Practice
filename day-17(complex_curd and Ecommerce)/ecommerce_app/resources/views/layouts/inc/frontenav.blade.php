@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">E-SHOP</a>
-        <button id="mybtn">034224449445</button>
+        {{-- <button id="mybtn">034224449445</button> --}}
         <div class="search-bar">
             <form action="{{ url('searchproduct') }}" method="POST">
                 @csrf
                 <div class="input-group">
-                    <input type="search" name="product_name" id="search_product" required class="form-control" placeholder="Search Products"
-                         aria-describedby="basic-addon1">
+                    <input type="search" name="product_name" id="search_product" required class="form-control"
+                        placeholder="Search Products" aria-describedby="basic-addon1">
                     <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
                 </div>
             </form>
@@ -19,21 +19,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('/') }}">
+                        <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('category') }}">Category</a>
+                    <a class="nav-link" href="{{ url('category') }}">
+                        <i class="fas fa-th"></i> Category
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('cart') }}">Cart
+                    <a class="nav-link" href="{{ url('cart') }}">
+                        <i class="fas fa-shopping-cart"></i> Cart
                         <span class="badge badge-pill bg-primary cart-count">0</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('wishlist') }}">Wishlist
+                    <a class="nav-link" href="{{ url('wishlist') }}">
+                        <i class="fas fa-heart"></i> Wishlist
                         <span class="badge badge-pill bg-success wishlist-count">0</span>
                     </a>
                 </li>
+
                 @auth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -58,10 +65,10 @@
                 <!-- Check if the user is a guest (not logged in) -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}"> <i class="fas fa-user-plus"></i> Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                     </li>
                 @endguest
             </ul>
@@ -69,11 +76,11 @@
     </div>
 </nav>
 <script>
-   function trackProductSearch() {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-         'event': 'productSearch',
-         'searchTerm': document.getElementById('search_product').value
-      });
-   }
+    function trackProductSearch() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'productSearch',
+            'searchTerm': document.getElementById('search_product').value
+        });
+    }
 </script>

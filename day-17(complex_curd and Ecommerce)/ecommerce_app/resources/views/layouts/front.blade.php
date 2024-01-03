@@ -2,6 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
+    {{-- <link rel="icon" href="public/assets/favicon.png" type="image/png"> --}}
+    <link rel="icon" href="{{ asset('assets/favicon.png') }}" type="image/png">
+    {{-- {{ asset('assets/icon.png') }} --}}
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta charset="utf-8">
@@ -45,6 +50,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 
+
     {{-- Font Awesome icon --}}
 
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -64,6 +70,21 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-PZLWPGRD');</script>
     <!-- End Google Tag Manager -->
+
+
+
+
+    {{-- Styling for footer  --}}
+    {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('frontend/css/style1.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/style12.css') }}"> --}}
+
+    {{-- Style for footer--}}
 
 </head>
 
