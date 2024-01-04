@@ -42,26 +42,29 @@
                 </li>
 
                 @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->name }}
-                        </a>
-                        <div style="padding-left: 10px padding-right: 10px;" class="dropdown-menu dropdown-menu-right"
-                            aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">My Profile</a>
-                            <a class="dropdown-item" href="{{ url('my_orders') }}">My Orders</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Logout
+                    @if (auth()->user()->is_verified == 1)
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ auth()->user()->name }}
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                            <div style="padding-left: 10px; padding-right: 10px;" class="dropdown-menu dropdown-menu-right"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">My Profile</a>
+                                <a class="dropdown-item" href="{{ url('my_orders') }}">My Orders</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endif
                 @endauth
+
                 <!-- Check if the user is a guest (not logged in) -->
                 @guest
                     <li class="nav-item">
