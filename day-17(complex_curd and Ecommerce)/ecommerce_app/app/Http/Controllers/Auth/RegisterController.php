@@ -38,6 +38,7 @@ class RegisterController extends Controller
     //     return view('otp_verify');
     // }
     protected $redirectTo = '/otp_verify';
+// return redirect("/verification/" . $user->id);
 
     /**
      * Create a new controller instance.
@@ -77,5 +78,20 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /* protected function registered(Request $request, $user)
+    {
+        // Pass user ID to the session
+        $request->session()->put('user_id', $user->id);
+
+        return redirect($this->redirectPath());
+    } */
+    protected function registered(Request $request, $user)
+    {
+        // Pass user ID to the session
+        $request->session()->put('user_id', $user->id);
+
+        return redirect('/otp_verify/' . $user->id);
     }
 }

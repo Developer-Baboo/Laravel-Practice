@@ -8,9 +8,29 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-{{-- action="{{ route('verify') }}" --}}
+                    <p id="message_error" style="color:red;"></p>
+                    <p id="message_success" style="color:green;"></p>
+                    {{-- action="{{ route('verify') }}" --}}
                     <div class="card-body">
-                        <form id="verifyForm" method="POST">
+                        <form method="GET" id="verificationForm">
+
+                            {{--
+
+                                <p id="message_error" style="color:red;"></p>
+<p id="message_success" style="color:green;"></p>
+<form method="post" id="verificationForm">
+    @csrf
+    <input type="hidden" name="email" value="{{ $email }}">
+    <input type="number" name="otp" placeholder="Enter OTP" required>
+    <br><br>
+    <input type="submit" value="Verify">
+
+</form>
+
+<p class="time"></p>
+
+<button id="resendOtpVerification">Resend Verification OTP</button>
+                                --}}
                             @csrf
 
                             <div class="row mb-3">
@@ -18,6 +38,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Otp') }}</label>
 
                                 <div class="col-md-6">
+                                    <input type="hidden" name="email" value="{{ $email }}">
                                     <input id="otp" type="number"!
                                         class="form-control @error('name') is-invalid @enderror" name="otp"
                                         value="{{ old('otp') }}" required autocomplete="otp" autofocus>
@@ -31,13 +52,16 @@
                             </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" id="verifyButton" class="btn btn-primary">
+                                    {{-- <button type="submit" id="verifyButton" class="btn btn-primary">
                                         {{ __('Verify') }}
-                                    </button>
+                                    </button> --}}
+                                    <input type="submit" class="btn btn-primary" value="Verify">
                                 </div>
                             </div>
                         </form>
+                        <p class="time"></p>
                         {{--  --}}
+                        <button id="resendOtpVerification">Resend Verification OTP</button>
                     </div>
                 </div>
             </div>
@@ -62,6 +86,90 @@
                 // Enable or disable the Register button based on the condition
                 $('button[type="submit"]').prop('disabled', anyFieldEmpty);
             });
+
+
+            $('#verificationForm').submit(function(e) {
+                e.preventDefault();
+
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    url: "{{ route('verifiedOtp') }}",
+                    type: "POST",
+                    data: formData,
+                    success: function(res) {
+                        if (res.success) {
+                            alert(res.msg);
+                            window.open("/", "_self");
+                        } else {
+                            $('#message_error').text(res.msg);
+                            setTimeout(() => {
+                                $('#message_error').text('');
+                            }, 3000);
+                        }
+                    }
+                });
+
+            });
+
+            $('#resendOtpVerification').click(function() {
+                $(this).text('Wait...');
+                var userMail = @json($email);
+
+                $.ajax({
+                    url: "{{ route('resendOtp') }}",
+                    type: "GET",
+                    data: {
+                        email: userMail
+                    },
+                    success: function(res) {
+                        $('#resendOtpVerification').text('Resend Verification OTP');
+                        if (res.success) {
+                            timer();
+                            $('#message_success').text(res.msg);
+                            setTimeout(() => {
+                                $('#message_success').text('');
+                            }, 3000);
+                        } else {
+                            $('#message_error').text(res.msg);
+                            setTimeout(() => {
+                                $('#message_error').text('');
+                            }, 3000);
+                        }
+                    }
+                });
+
+            });
+
+
         });
+
+        function timer() {
+            var seconds = 30;
+            var minutes = 1;
+
+            var timer = setInterval(() => {
+
+                if (minutes < 0) {
+                    $('.time').text('');
+                    clearInterval(timer);
+                } else {
+                    let tempMinutes = minutes.toString().length > 1 ? minutes : '0' + minutes;
+                    let tempSeconds = seconds.toString().length > 1 ? seconds : '0' + seconds;
+
+                    $('.time').text(tempMinutes + ':' + tempSeconds);
+                }
+
+                if (seconds <= 0) {
+                    minutes--;
+                    seconds = 59;
+                }
+
+                seconds--;
+
+            }, 1000);
+        }
+
+        timer();
     </script>
 @endsection

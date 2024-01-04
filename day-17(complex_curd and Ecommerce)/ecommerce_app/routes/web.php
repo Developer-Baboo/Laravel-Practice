@@ -2,24 +2,52 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GoogleContoller;
+use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\mailCheckController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\FacebookController;
-use App\Http\Controllers\mailCheckController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\ReviewController1;
-use App\Http\Controllers\frontend\CheckoutController;
 // use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\FrontendController as FrontendFrontendController;
 
 
-Route::view('/otp_verify', 'otp_verify')->name('otp_verify');
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/register',[UserController::class,'loadRegister']);
+// Route::post('/register',[UserController::class,'studentRegister'])->name('studentRegister');
+// Route::get('/login',function(){
+//     return redirect('/');
+// });
+// Route::get('/',[UserController::class,'loadLogin']);
+// Route::post('/login',[UserController::class,'userLogin'])->name('userLogin');
+
+// Route::get('/otp_verify/{id}',[VerController::class,'verification'])->name('otp_verify');
+Route::get('/otp_verify/{id}', [VerController::class, 'verification'])->name('otp_verify');
+// otp_verify
+Route::post('/verified',[VerController::class,'verifiedOtp'])->name('verifiedOtp');
+// Route::get('/dashboard',[VerController::class,'loadDashboard']);
+
+Route::get('/resend-otp',[VerController::class,'resendOtp'])->name('resendOtp');
+
+
+
+
+
+// Route::view('/otp_verify', 'otp_verify')->name('otp_verify');
 // Route::post('/check-email', 'App\Http\Controllers\mailCheckController@checkEmail');
 
 //Check user already exist route
