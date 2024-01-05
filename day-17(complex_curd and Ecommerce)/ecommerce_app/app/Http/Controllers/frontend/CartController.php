@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+
+    /*
+
+    */
+
+
+
+
     // Method for adding a product to the cart
     function addProduct(Request $request)
     {
@@ -19,6 +28,7 @@ class CartController extends Controller
 
         // Check if the user is authenticated (logged in)
         if (Auth::check()) {
+            
             // Check if a product with the given 'product_id' exists in the database
             $prod_check = Product::where('id', $product_id)->first();
 

@@ -36,12 +36,14 @@ class GoogleContoller extends Controller
                         'name' => $user->getName(),
                         'email' => $user->getEmail(),
                         'password' => Hash::make($user->getName() . '@' . $user->getId()), // Generating a password based on user data (this may not be secure).
+                        'is_verified' => 1,
                     ]
                 );
             } else {
                 // If the user already exists, update the 'google_id' in their record.
                 $saveUser = User::where('email', $user->getEmail())->update([
                     'google_id' => $user->getId(),
+                    'is_verified' => 1,
                 ]);
 
                 // Retrieve the updated user record.
@@ -53,6 +55,7 @@ class GoogleContoller extends Controller
 
             // Redirect the authenticated user to the 'home' route.
             return redirect()->route('home');
+
         } catch (\Throwable $th) {
             throw $th; // Handle any exceptions that occur during this process.
         }

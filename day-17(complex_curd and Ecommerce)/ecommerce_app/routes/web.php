@@ -69,7 +69,7 @@ route::get('auth/facebook/callback', [FacebookController::class, 'facebookredire
 
 
 //Front Home Page
-Route::get('/', 'App\Http\Controllers\frontend\FrontendController@index');
+Route::get('/', 'App\Http\Controllers\frontend\FrontendController@index')->name('home');
 
 //Show categories
 Route::get('category', 'App\Http\Controllers\frontend\FrontendController@category');
