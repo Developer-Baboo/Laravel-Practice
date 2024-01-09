@@ -15,7 +15,8 @@ class Review extends Model
         'user_review'
     ]);
 
-    function user(){
+    function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -24,7 +25,8 @@ class Review extends Model
     //     return $this->belongsTo(Rating::class, 'user_id', 'user_id');
     // }
 
-    function product(){
+    function product()
+    {
         return $this->belongsTo(Product::class, 'prod_id', 'id');
     }
 }

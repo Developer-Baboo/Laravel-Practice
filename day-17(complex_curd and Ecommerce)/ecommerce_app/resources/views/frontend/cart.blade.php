@@ -69,7 +69,7 @@
         @endif
     </div>
 </div>
-<script>
+{{-- <script>
         dataLayer = window.dataLayer || [];
         dataLayer.push({
             'event': 'cartViewed',
@@ -78,5 +78,5 @@
                 'total': {{ $total }}
             }
         });
-    </script>
+</script> --}}
 @endsection

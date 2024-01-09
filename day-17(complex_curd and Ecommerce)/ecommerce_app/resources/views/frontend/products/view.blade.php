@@ -23,7 +23,7 @@
                                 @if ($user_rating)
                                     <!-- Loop through user's rated stars -->
                                     @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
-                                    <!-- Create a radio input with the value equal to current star rating -->
+                                        <!-- Create a radio input with the value equal to current star rating -->
                                         <input type="radio" value="{{ $i }}" name="product_rating" checked
                                             id="rating{{ $i }}">
                                         <!-- Create a label for the radio input representing a star icon -->
@@ -31,14 +31,14 @@
                                     @endfor
                                     <!-- Loop through remaining stars to make them unchecked -->
                                     @for ($j = $user_rating->stars_rated + 1; $j <= 5; $j++)
-                                    <!-- Create unchecked radio inputs for remaining stars -->
+                                        <!-- Create unchecked radio inputs for remaining stars -->
                                         <input type="radio" value="{{ $j }}" name="product_rating"
                                             id="rating{{ $j }}">
-                                            <!-- Create labels for remaining stars representing star icons -->
+                                        <!-- Create labels for remaining stars representing star icons -->
                                         <label for="rating{{ $j }}" class="fa fa-star"></label>
                                     @endfor
                                 @else
-                                <!-- If user has not rated, show all stars as unchecked -->
+                                    <!-- If user has not rated, show all stars as unchecked -->
                                     <input type="radio" value="1" name="product_rating" checked id="rating1">
                                     <label for="rating1" class="fa fa-star"></label>
                                     <input type="radio" value="2" name="product_rating" id="rating2">
@@ -169,9 +169,10 @@
                         </a>
                     </div>
                     <div class="col-md-8">
+
                         @foreach ($reviews as $item)
                             <div class="user_review">
-                                <label for="">{{ $item->user->name . ' ' . $item->user->lname }}</label>
+                                    <label for="">{{ $item->user->name }}</label>
                                 @if ($item->user_id == Auth::id())
                                     <a href="{{ url('edit_review/' . $products->slug . '/userreview') }}">Edit</a>
                                 @endif

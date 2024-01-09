@@ -73,6 +73,12 @@ class FrontendController extends Controller
                 $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
                 // Retrieve all reviews for the product
                 $reviews = Review::where('prod_id', $products->id)->get();
+                // dd($reviews);
+
+                // echo "<pre>";
+                // die($reviews);
+
+
                 // Calculate the average rating for the product
                 if ($ratings->count() > 0) {
                     $rating_value = $rating_sum / $ratings->count(); // Calculate average rating

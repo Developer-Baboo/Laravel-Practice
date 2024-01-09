@@ -123,3 +123,148 @@ class CheckoutController extends Controller
         ]);
     }
 }
+
+
+/* APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:2fyzuEHNPPd4XevDDIWMe4EkbfqiHkE+XQQb8hzbGPA=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ecommerce2
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=babooheerani999@gmail.com
+MAIL_PASSWORD=kysxzzhguzxqwocj
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="babooheerani999@gmail.com"
+MAIL_FROM_NAME="Developer Baboo"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+VITE_APP_NAME="${APP_NAME}"
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+
+GOOGLE_CLIENT_ID = "327306363228-2gk9dkr6hprkb7pgpm43g35m3irn6rb4.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "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"
+=================================================================
+Authenticaiton with google and facebook
+icon
+otp verification
+product add email goes to
+footer added
+=================================================================
+- Slider movement
+- Opt verification (email sending) Pending...!
+- Google login set is_verified as 1
+- Footer styling
+- Add product email sending with file sending with file
+- Add to cart
+- Add to wishlist
+- Blur page while loading
+- Animations
+- Dark Mode
+- Mobile Responsive
+- Api for mobile applications
+- Contact us forms
+- Frontend on React
+- recaptcha
+- place order man address man google map use krno aha
+- daily database backup
+
+******************errors***************
+validations
+**************************
+=================================================================
+
+
+
+Todo:: debugging main page ......!............???????
+index.blade.php..................!
+app.blade.php....................!
+font.blade.php...................!
+
+if (Auth::check()) {
+    $user = Auth::user();
+
+    // Check if the user is verified
+    if ($user->is_verified == 1) {
+        // Check if a product with the given 'product_id' exists in the database
+        $prod_check = Product::where('id', $product_id)->first();
+
+        if ($prod_check) {
+            // Your logic for a verified user and existing product goes here
+            // ...
+
+        } else {
+            // Product not found
+            // You may want to handle this case, redirect, show an error, etc.
+        }
+    } else {
+        // User is not verified
+        // You may want to handle this case, redirect, show an error, etc.
+    }
+} else {
+    // User is not authenticated
+    // You may want to handle this case, redirect to login, show an error, etc.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================
+https://icons8.com/icon/V5cGWnc9R4xj/google
+https://codeanddeploy.com/category/laravel
+
+
+
+ */
