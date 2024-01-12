@@ -52,7 +52,7 @@ class ProductNotification extends Notification
     {
         return (new MailMessage)
         ->subject('New Product Added: ' . $this->product->name)
-        ->markdown('product_add_mail', [
+        ->markdown('emails.product_add_mail', [
             'notifiable' => $notifiable,
             'product' => $this->product,
         ]);
