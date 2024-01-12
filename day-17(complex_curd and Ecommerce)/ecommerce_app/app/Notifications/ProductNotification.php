@@ -33,19 +33,29 @@ class ProductNotification extends Notification
     /**
      * Get the mail representation of the notification.
      */
+    // public function toMail($notifiable)
+    // {
+    //     return (new MailMessage)
+    //         ->subject('New Product Added: ' . $this->product->name)
+    //         ->line('Dear Sir/ Madam ' . $notifiable->name . ',')
+    //         ->line('We are excited to inform you that a new product has been added to our catalog.')
+    //         ->line('Product Details:')
+    //         ->line('Name: ' . $this->product->name)
+    //         ->line('Description: ' . $this->product->description)
+    //         ->line('Original Price: $' . number_format($this->product->original_price, 10))
+    //         ->line('Selling Price: $' . number_format($this->product->selling_price, 10))
+    //         ->line('View Product: ' . url("/products/{$this->product->id}"))
+    //         ->line('Thank you for choosing our products. If you have any questions, feel free to contact us.');
+    // }
+
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('New Product Added: ' . $this->product->name)
-            ->line('Dear Sir/ Madam ' . $notifiable->name . ',')
-            ->line('We are excited to inform you that a new product has been added to our catalog.')
-            ->line('Product Details:')
-            ->line('Name: ' . $this->product->name)
-            ->line('Description: ' . $this->product->description)
-            ->line('Original Price: $' . number_format($this->product->original_price, 10))
-            ->line('Selling Price: $' . number_format($this->product->selling_price, 10))
-            ->line('View Product: ' . url("/products/{$this->product->id}"))
-            ->line('Thank you for choosing our products. If you have any questions, feel free to contact us.');
+        ->subject('New Product Added: ' . $this->product->name)
+        ->markdown('product_add_mail', [
+            'notifiable' => $notifiable,
+            'product' => $this->product,
+        ]);
     }
 
 
