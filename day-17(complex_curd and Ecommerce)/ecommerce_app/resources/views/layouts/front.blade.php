@@ -63,18 +63,29 @@
         }
     </style>
 
-     <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PZLWPGRD');</script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PZLWPGRD');
+    </script>
     <!-- End Google Tag Manager -->
 
 
 
 
-    {{-- Styling for footer  --}}
+    {{-- Styling for footer star  --}}
     {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
@@ -84,14 +95,20 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style1.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style12.css') }}"> --}}
 
-    {{-- Style for footer--}}
+    {{-- Style for footer end --}}
+
+    
+
 
 </head>
 
 <body>
+
+
+
     <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZLWPGRD"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZLWPGRD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     @include('layouts.inc.frontenav')
     <div class="content">
@@ -101,7 +118,7 @@
 
     <div class="whatsapp-chat">
         <a href="https://wa.me/+923422449445?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank">
-            <img src="{{ asset('assets/icon.png') }}" alt="" height="80px" width="80px" >
+            <img src="{{ asset('assets/icon.png') }}" alt="" height="80px" width="80px">
         </a>
     </div>
 
@@ -173,7 +190,7 @@
     @yield('scripts')
 
 
-{{-- GTM --}}
+    {{-- GTM --}}
 
 </body>
 

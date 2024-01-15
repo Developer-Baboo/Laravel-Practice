@@ -11,7 +11,7 @@
         <h4>Add Product</h4>
     </div>
     <div class="card-body">
-        <form action="{{url('insert-product')}}" method="POST" enctype="multipart/form-data">
+        <form id="formid" action="{{url('insert-product')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-12">
@@ -85,3 +85,35 @@
     </div>
 </div>
 @endsection
+<script>
+    $(document).ready(function () {
+        $('#formid').on("submit", function (event) {
+            alert("Working");
+            $(".loader").show();
+
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Perform AJAX form submission
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    // Handle success response
+
+                    // Hide the loader
+                    $(".loader").hide();
+                },
+                error: function (error) {
+                    // Handle error response
+
+                    // Hide the loader
+                    $(".loader").hide();
+                }
+            });
+        });
+    });
+</script>

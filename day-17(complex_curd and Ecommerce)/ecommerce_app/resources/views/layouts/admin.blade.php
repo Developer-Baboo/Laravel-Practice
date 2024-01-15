@@ -48,15 +48,23 @@
     <link rel="stylesheet" href="{{ asset('admin/css/material-dashboard.css') }}">
     {{-- <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}"> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    
 
 
+
+    {{-- Loader Styling --}}
+
+    <link rel="stylesheet" href="{{ asset('admin/css/custom1.css') }}">
 
 
 
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
+
+    {{-- Loader  --}}
+    <div class="loader">
+        <img src="{{ asset('assets/loader.gif') }}" alt="Loading">
+    </div>
     <!-- Sidebar -->
     @include('layouts.inc.sidebar')
 
@@ -74,6 +82,9 @@
 
 
     <!-- Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{{ asset('admin/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('admin/js/core/bootstrap.min.js') }}"></script>
     {{-- <script src="{{ asset('admin/js/core/jquery.min.js')}}"  ></script> --}}
@@ -102,7 +113,7 @@
                     element.textContent = '0';
 
                     const increment = Math.ceil(originalValue /
-                    30); // Divide by the number of frames (30 frames per second)
+                        30); // Divide by the number of frames (30 frames per second)
                     let currentValue = 0;
 
                     const interval = setInterval(() => {

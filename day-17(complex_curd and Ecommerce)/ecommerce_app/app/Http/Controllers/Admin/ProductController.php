@@ -28,6 +28,23 @@ class ProductController extends Controller
     // Insert a new product into the database
     function insert(Request $request)
     {
+        $request->validate([
+            'cate_id' => 'required|exists:categories,id',
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:products,slug',
+            'small_description' => 'required|string',
+            'description' => 'required|string',
+            'original_price' => 'required|numeric',
+            'selling_price' => 'required|numeric',
+            'tax' => 'required|numeric',
+            'qty' => 'required|numeric',
+            'meta_title' => 'required|string|max:255',
+            'meta_keywords' => 'required|string',
+            'meta_description' => 'required|string',
+            'status' => 'boolean',
+            'trending' => 'boolean',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         $product = new Product(); // Create a new Product model instance
 
         // Handle image upload if a file is present in the request
