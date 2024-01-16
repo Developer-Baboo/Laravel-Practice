@@ -6,7 +6,10 @@
     width: 100%;
     z-index: 9999;
 }
-
+.loader.blur-background {
+    backdrop-filter: blur(5px);
+    /* Adjust the blur intensity as needed */
+}
 .loader img {
     left: 50%;
     margin-left: -32px;

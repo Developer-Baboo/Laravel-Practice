@@ -2,6 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
+    <link rel="icon" href="{{ asset('assets/favicon.png') }}" type="image/png">
     <style>
         @keyframes count-up {
             from {
@@ -100,6 +102,8 @@
         </script>
     @endif
     @yield('scripts')
+
+
 
 
 

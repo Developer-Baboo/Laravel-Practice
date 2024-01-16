@@ -84,11 +84,11 @@
         </form>
     </div>
 </div>
-@endsection
 <script>
     $(document).ready(function () {
         $('#formid').on("submit", function (event) {
-            alert("Working");
+            // alert("Working");
+            $('body').addClass('blur-background');
             $(".loader").show();
 
             // Prevent the default form submission
@@ -106,14 +106,19 @@
 
                     // Hide the loader
                     $(".loader").hide();
+                    $('body').removeClass('blur-background');
+                    window.location.href = '/products';
                 },
                 error: function (error) {
                     // Handle error response
 
                     // Hide the loader
                     $(".loader").hide();
+                    // Remove blur class from body
+                    $('body').removeClass('blur-background');
                 }
             });
         });
     });
 </script>
+@endsection
