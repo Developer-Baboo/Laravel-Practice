@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -13,6 +15,7 @@ class ProductController extends Controller
     // Display a list of products
     function index()
     {
+        session()->forget(['errors', 'old']);
         // Fetch all products from the database
         $products = Product::all();
         return view('admin.product.index', compact('products')); // Return the view with the product data
@@ -29,18 +32,39 @@ class ProductController extends Controller
     function insert(Request $request)
     {
         // dd($request->all());
-        $product = new Product(); // Create a new Product model instance
+        // Validate the incoming request data
+        $request->validate([
+            'cate_id' => 'required|exists:categories,id',
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|unique:products,slug|max:255',
+            'small_description' => 'required|string|max:255',
+            'description' => 'required|string',
+            'original_price' => 'required|numeric|min:0',
+            'selling_price' => 'required|numeric|min:0',
+            'tax' => 'required|numeric|min:0',
+            'qty' => 'required|integer|min:0',
+            'status' => 'required|boolean',
+            'trending' => 'required|boolean',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_keywords' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation as needed
+        ]);
 
-        // Handle image upload if a file is present in the request
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
-            $file->move('assets/uploads/product', $filename);
-            $product->image = $filename;
+            $file->move(
+                'assets/uploads/product',
+                $filename
+            );
         }
 
-        // Populate the product model with data from the request
+        // Create a new Product model instance
+        $product = new Product();
+
+        // Populate the product model with data from the validated request
         $product->cate_id = $request->input('cate_id');
         $product->name = $request->input('name');
         $product->slug = $request->input('slug');
@@ -50,15 +74,15 @@ class ProductController extends Controller
         $product->selling_price = $request->input('selling_price');
         $product->tax = $request->input('tax');
         $product->qty = $request->input('qty');
-        $product->status = $request->input('status') == TRUE ? '1' : '0';
-        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->status = $request->input('status');
+        $product->trending = $request->input('trending');
         $product->meta_title = $request->input('meta_title');
         $product->meta_keywords = $request->input('meta_keywords');
         $product->meta_description = $request->input('meta_description');
+        $product->image = $filename ?? null;
 
         // Save the product to the database
         $product->save();
-
 
         $users = User::all();
 
