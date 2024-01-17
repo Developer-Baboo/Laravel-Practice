@@ -30,7 +30,7 @@
                         <input type="text" class="form-control" name="name" id=""
                             style="border: 1px solid #ccc;">
                         @error('name')
-                            <div class="text-danger">{{ $message }}</div>
+                            <div style="color:red" class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-md-6 mb-3">
@@ -110,7 +110,9 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Meta KeyWords</label>
-                        <textarea name="meta_keywords" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea>
+                        {{-- <textarea name="meta_keywords" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea> --}}
+                        {{-- <textarea name="meta_keywords" class="form-control border-1" rows="3"></textarea> --}}
+                        <textarea name="meta_keywords" class="form-control border" rows="3"></textarea>
                         @error('meta_keywords')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

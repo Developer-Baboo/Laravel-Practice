@@ -25,6 +25,12 @@ class CategoryController extends Controller
     // Insert a new category into the database
     function insert(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation as needed
+        ]);
         $category = new Category(); // Create a new Category model instance
 
         // Handle image upload if a file is present in the request
