@@ -8,12 +8,13 @@
             <h4>Add Category</h4>
         </div>
         <div class="card-body">
+
             <form id="formid" action="{{ url('insert-category') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" name="name" id=""
+                        <input type="text" class="form-control" name="name" id="name"
                             style="border: 1px solid #ccc;">
                         @error('name')
                             <div style="color:red" class="text-danger">{{ $message }}</div>
@@ -21,7 +22,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Slug</label>
-                        <input type="text" class="form-control" name="slug" id=""
+                        <input type="text" class="form-control" name="slug" id="slug"
                             style="border: 1px solid #ccc;">
                         @error('slug')
                             <div style="color:red" class="text-danger">{{ $message }}</div>
@@ -30,7 +31,7 @@
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
                         <textarea name="description" style="border: 1px solid #ccc;" class="form-control" rows="3"
-                            style="border: 1px solid #ccc;"></textarea>
+                            style="border: 1px solid #ccc;" id="description"></textarea>
                         @error('description')
                             <div style="color:red" class="text-danger">{{ $message }}</div>
                         @enderror
@@ -63,21 +64,25 @@
                         <textarea name="meta_description" class="form-control" rows="3" style="border: 1px solid #ccc;"></textarea>
                     </div>
                     <div class="col-md-12">
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" class="form-control" id="image">
                     </div>
                     @error('image')
                         <div style="color:red" class="text-danger">{{ $message }}</div>
                     @enderror
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="submitBtn">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> --}}
     <script>
         $(document).ready(function() {
-            alert("Working ");
+            alert("Working Jquery ");
+
             $('#formid').validate({
                 rules: {
                     name: {
@@ -107,10 +112,8 @@
                         required: "Please select an image."
                     }
                 },
-                submitHandler: function(form) {
-
-                    alert("working")
-                    // $(".loader").show();n
+                submitHandler: function(form, event) {
+                    alert("working inside submit handler");
                     // Prevent the default form submission
                     event.preventDefault();
 
@@ -122,10 +125,14 @@
                         processData: false,
                         contentType: false,
                         success: function(response) {
+                            alert("Success");
                             window.location.href = '/categories';
                         },
                         error: function(error) {
                             if (error.responseJSON && error.responseJSON.errors) {
+                                // Clear previous error messages
+                                $('.text-danger').remove();
+
                                 // Display validation errors below each corresponding input field
                                 $.each(error.responseJSON.errors, function(field,
                                     messages) {
@@ -133,10 +140,18 @@
                                         '<div class="text-danger">' + messages
                                         .join('<br>') + '</div>');
                                 });
+                            } else {
+                                // Handle other types of errors (e.g., server errors)
+                                alert("An error occurred. Please try again.");
                             }
                         }
                     });
                 }
             });
+
+            $('#submitBtn').on('click', function(event) {
+                $('#formid').submit(); // Trigger the validation and submitHandler
+            });
         });
+    </script>
 @endsection

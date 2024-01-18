@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $category->save();
 
         // Redirect back to the dashboard with a success message
-        return redirect('/dashboard')->with('status', "Category Added Successfully");
+        return redirect('/categories')->with('status', "Category Added Successfully");
     }
 
     // Display the edit category form for a specific category

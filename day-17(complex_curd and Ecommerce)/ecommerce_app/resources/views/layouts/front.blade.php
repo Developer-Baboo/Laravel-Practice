@@ -95,9 +95,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style1.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style12.css') }}"> --}}
 
+    <link rel="stylesheet" href="{{ asset('frontend/css/style_footer.css') }}">
     {{-- Style for footer end --}}
 
-    
+
 
 
 </head>
