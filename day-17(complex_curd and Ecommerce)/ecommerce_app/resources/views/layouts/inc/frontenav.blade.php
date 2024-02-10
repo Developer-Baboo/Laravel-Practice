@@ -68,16 +68,53 @@
                 <!-- Check if the user is a guest (not logged in) -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}"> <i class="fas fa-user-plus"></i> Register</a>
+                        <a class="nav-link" href="{{ route('register') }}">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
                     </li>
+                @else
+                    @if (auth()->user()->is_verified == 0)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">
+                                <i class="fas fa-user-plus"></i> Register
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
+                        </li>
+                    @endif
                 @endguest
+
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="darkModeToggle">
+                        <i class="fas fa-moon" style="color: white;"></i>
+                    </a>
+                </li>
+
+
+
             </ul>
         </div>
     </div>
 </nav>
+<script>
+    document.getElementById('darkModeIcon').addEventListener('click', toggleDarkMode);
+
+    function toggleDarkMode() {
+        // Implement your dark mode toggle logic here
+        // For example, you can toggle a dark mode class on the body
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
 <script>
     function trackProductSearch() {
         window.dataLayer = window.dataLayer || [];
